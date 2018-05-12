@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+  <contextName>boilerplate</contextName>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--<file>${jetty.base}/logs/fusion/${CONTEXT_NAME}.log</file>-->
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${jetty.base}/logs/boilerplate/${CONTEXT_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <!-- keep 30 days' worth toDTO history -->
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %-50logger{50} - %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%contextName: %d{HH:mm:ss.SSS} [%thread] %-5level %-50logger{50} - %msg%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <root level="ERROR">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+  <logger name="com.minimall.boilerplate">
+    <level value="INFO"/>
+  </logger>
+  <logger name="org.eclipse.jetty">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="org.apache">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="reactor.io">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="org.springframework">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="org.springframework.jms">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="org.hibernate">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="net.sf.ehcache">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="com.nimbusds">
+    <level value="ERROR"/>
+  </logger>
+  <logger name="com.alibaba">
+    <level value="ERROR"/>
+  </logger>
+
+</configuration>

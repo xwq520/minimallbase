@@ -1,0 +1,2 @@
+2018-05-01 23:59:57.509 [restartedMain] INFO  com.minimall.boilerplate.BoilerplateApplication    - Starting BoilerplateApplication on xwb with PID 9736 (E:\win10\minimall-java-business\target\classes started by wb in E:\win10\minimall-java-business)
+2018-05-01 23:59:57.514 [restartedMain] INFO  com.minimall.boilerplate.BoilerplateApplication    - The following profiles are active: com,dev
