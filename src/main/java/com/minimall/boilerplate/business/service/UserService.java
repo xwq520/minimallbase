@@ -1,5 +1,6 @@
 package com.minimall.boilerplate.business.service;
 
+import com.minimall.boilerplate.business.dto.PasswordDTO;
 import com.minimall.boilerplate.business.dto.UserDTO;
 import com.minimall.boilerplate.business.dto.assembler.UserAssembler;
 import com.minimall.boilerplate.business.entity.User;
@@ -104,4 +105,32 @@ public class UserService {
         }
         return null;
     }
+
+    // 验证账号和密码是否存在
+    @Transactional
+    public boolean verification(UserDTO userDTO){
+        Optional<User> user = userRepository.findByUserIdAndPassword(userDTO.getUserId(),userDTO.getPassword());
+        if(user.isPresent()){
+            return true;
+        }
+        return false;
+    }
+
+    // 修改密码
+    @Transactional
+    public boolean updatePassowrd(PasswordDTO passwordDTO) {
+        Optional<User> user = userRepository.findByUserIdAndPassword(passwordDTO.getUserId(),passwordDTO.getPassword());
+        if(user.isPresent()){
+            if(passwordDTO.getPassword().equals(user.get().getPassword())){
+                user.get().setPassword(passwordDTO.getNewPassword());
+                userRepository.save(user.get());
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
+
 }

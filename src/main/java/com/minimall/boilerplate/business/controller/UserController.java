@@ -1,5 +1,6 @@
 package com.minimall.boilerplate.business.controller;
 
+import com.minimall.boilerplate.business.dto.PasswordDTO;
 import com.minimall.boilerplate.business.dto.UserDTO;
 import com.minimall.boilerplate.business.service.UserService;
 import com.minimall.boilerplate.common.CheckUtils;
@@ -25,6 +26,42 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    // 验证账号和密码是否存在
+    @RequestMapping(method = POST,value = "/verification",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> verification(@RequestBody UserDTO userDTO){
+        MessageObject mo = MessageObject.of(Message.I101);
+        if(CheckUtils.isEmpty(userDTO.getUserId())
+                || CheckUtils.isEmpty(userDTO.getPassword())){
+            mo = MessageObject.of(Message.E111);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        boolean user = userService.verification(userDTO);
+        if(!user){
+            mo = MessageObject.of(Message.E162);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(mo, HttpStatus.OK);
+    }
+
+    // 修改密码
+    @RequestMapping(method = POST,value = "/updatePassowrd",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> updatePassowrd(@RequestBody PasswordDTO passwordDTO){
+        MessageObject mo = MessageObject.of(Message.I102);
+        if(CheckUtils.isEmpty(passwordDTO.getUserId())
+                || CheckUtils.isEmpty(passwordDTO.getPassword())
+                || CheckUtils.isEmpty(passwordDTO.getNewPassword()) ){
+            mo = MessageObject.of(Message.E111);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        boolean password = userService.updatePassowrd(passwordDTO);
+        if(!password){
+            mo = MessageObject.of(Message.E113);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(mo, HttpStatus.OK);
+    }
+
 
     /**
      * 新增用户
