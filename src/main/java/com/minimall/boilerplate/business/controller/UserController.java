@@ -12,10 +12,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Map;
-
 import static com.minimall.boilerplate.common.BusinessHelper.PageableConverter.toPageable;
 import static java.util.Objects.nonNull;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;

@@ -1,6 +1,5 @@
 package com.minimall.boilerplate.business.controller;
 
-import com.minimall.boilerplate.business.dto.CommodityDTO;
 import com.minimall.boilerplate.business.dto.OrderDTO;
 import com.minimall.boilerplate.business.service.OrderSerivce;
 import com.minimall.boilerplate.common.CheckUtils;

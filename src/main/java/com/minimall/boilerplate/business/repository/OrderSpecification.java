@@ -15,7 +15,7 @@ public class OrderSpecification {
         return (root, query, builder) -> {
             List<Predicate> predicates = new ArrayList<>();
             if (nonNull(orderDTO)) {
-                int orderStatus = orderDTO.getOrderStatus();
+                Integer orderStatus = orderDTO.getOrderStatus();
 
                 if(!CheckUtils.isEmpty(orderStatus)){
                     predicates.add(builder.equal(root.get("orderStatus"),orderStatus));

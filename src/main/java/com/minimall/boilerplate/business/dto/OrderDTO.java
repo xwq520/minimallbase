@@ -16,7 +16,7 @@ public class OrderDTO {
     private String address;// 收货地址
 
     // 订单状态 1.待支付  2.已支付（代发货） 3.已发货  4. 已取消订单
-    private int orderStatus;
+    private Integer orderStatus;
     private String orderStatusName;
 
     private String playTime;// 支付时间

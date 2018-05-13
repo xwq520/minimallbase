@@ -13,17 +13,17 @@ public class CommodityDTO {
     private String subtitle;// 子标题 如：商品比较详细的描述
     private String previewImg;// 预览图 图片base64
     private String commodityDetails;// 商品详情 如：淘宝网商品详情描述
-    private float originalPrice; // 原价
-    private float sellingPrice;// 售价
+    private Float originalPrice; // 原价
+    private Float sellingPrice;// 售价
     private String producedDate; // 生产日期
     private String startGuaPeriodDate;// 保质期 开始
     private String endGuaPeriodDate; // 保质期 结束
-    private float inventory;// 库存
+    private Float inventory;// 库存
     private Integer salesVolume;// 销量
     private String manufacturer;// 生产厂家
 
     // 状态  1.待发布 2.销售中  3.已下架
-    private int commodityStatus;
+    private Integer commodityStatus;
     private String commodityStatusName;
 
     private String soldOutTime;// 下架时间
