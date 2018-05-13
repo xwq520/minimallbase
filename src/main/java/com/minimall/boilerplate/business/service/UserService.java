@@ -106,7 +106,7 @@ public class UserService {
         return null;
     }
 
-    // 验证账号和密码是否存在
+    // 验证用户Id和用户密码是否存在
     @Transactional
     public boolean verification(UserDTO userDTO){
         Optional<User> user = userRepository.findByUserIdAndPassword(userDTO.getUserId(),userDTO.getPassword());
@@ -116,12 +116,14 @@ public class UserService {
         return false;
     }
 
-    // 修改密码
+    // 修改当前用户密码
     @Transactional
-    public boolean updatePassowrd(PasswordDTO passwordDTO) {
+    public boolean changePassowrd(PasswordDTO passwordDTO) {
         Optional<User> user = userRepository.findByUserIdAndPassword(passwordDTO.getUserId(),passwordDTO.getPassword());
         if(user.isPresent()){
+            // 验证原密码
             if(passwordDTO.getPassword().equals(user.get().getPassword())){
+                // 保存修改后密码
                 user.get().setPassword(passwordDTO.getNewPassword());
                 userRepository.save(user.get());
                 return true;

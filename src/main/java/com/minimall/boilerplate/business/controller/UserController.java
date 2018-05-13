@@ -27,7 +27,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // 验证账号和密码是否存在
+    // 验证用户Id和用户密码是否存在
     @RequestMapping(method = POST,value = "/verification",produces = Constants.JSON_UTF8)
     public ResponseEntity<MessageObject> verification(@RequestBody UserDTO userDTO){
         MessageObject mo = MessageObject.of(Message.I101);
@@ -44,9 +44,9 @@ public class UserController {
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 
-    // 修改密码
-    @RequestMapping(method = POST,value = "/updatePassowrd",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> updatePassowrd(@RequestBody PasswordDTO passwordDTO){
+    // 修改当前用户密码
+    @RequestMapping(method = POST,value = "/changePassowrd",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> changePassowrd(@RequestBody PasswordDTO passwordDTO){
         MessageObject mo = MessageObject.of(Message.I102);
         if(CheckUtils.isEmpty(passwordDTO.getUserId())
                 || CheckUtils.isEmpty(passwordDTO.getPassword())
@@ -54,7 +54,7 @@ public class UserController {
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        boolean password = userService.updatePassowrd(passwordDTO);
+        boolean password = userService.changePassowrd(passwordDTO);
         if(!password){
             mo = MessageObject.of(Message.E113);
             return new ResponseEntity<>(mo, HttpStatus.OK);
