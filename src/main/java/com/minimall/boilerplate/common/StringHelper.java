@@ -105,29 +105,6 @@ public final class StringHelper {
     return result.toString();
   }
 
-  //根据第三方平台类型获取，类型ID
-  public static Integer getThirdPlatTypeId(String platType) {
-    switch(platType) {
-      case JX_THIRD_PLAT_TYPE_STR_WECHAT:
-        return JX_THIRD_PLAT_TYPE_WECHAT;
-      case JX_THIRD_PLAT_TYPE_STR_DINGTALK:
-        return JX_THIRD_PLAT_TYPE_DINGTALK;
-      default:
-        return 1;
-    }
-  }
-
-  //根据第三方平台类型ID，获取类型名
-  public static String getThirdPlatTypeName(Integer platTypeId) {
-    switch(platTypeId) {
-      case 1:
-        return JX_THIRD_PLAT_TYPE_STR_WECHAT;
-      case 2:
-        return JX_THIRD_PLAT_TYPE_STR_DINGTALK;
-      default:
-        return JX_THIRD_PLAT_TYPE_STR_WECHAT;
-    }
-  }
 
   /**
    * 把中文转成Unicode码

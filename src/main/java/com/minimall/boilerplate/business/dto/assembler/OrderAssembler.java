@@ -1,7 +1,9 @@
 package com.minimall.boilerplate.business.dto.assembler;
 
-import com.minimall.boilerplate.business.dto.UserDTO;
+import com.minimall.boilerplate.business.dto.OrderDTO;
+import com.minimall.boilerplate.business.entity.Order;
 import com.minimall.boilerplate.business.entity.User;
+import com.minimall.boilerplate.business.repository.OrderRepository;
 import com.minimall.boilerplate.business.repository.UserRepository;
 import com.minimall.boilerplate.common.Constants;
 import com.minimall.boilerplate.common.DateHelper;
@@ -15,62 +17,63 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 @Component
-public class UserAssembler implements IDTOAssembler<UserDTO,User>{
+public class OrderAssembler implements IDTOAssembler<OrderDTO,Order> {
     private final ModelMapper modelMapper = new ModelMapper();
 
     @Autowired
+    private OrderRepository orderRepository;
+    @Autowired
     private UserRepository userRepository;
 
-    public UserAssembler() {
+    public OrderAssembler() {
         modelMapper.getConfiguration().setPropertyCondition(Conditions.isNotNull());
-        modelMapper.addMappings(new UserDTOMap());
-        modelMapper.addMappings(new UserMap());
+        modelMapper.addMappings(new OrderAssembler.OrderDTOMap());
+        modelMapper.addMappings(new OrderAssembler.OrderMap());
     }
 
     @Override
-    public Optional<UserDTO> toDTO(User user) {
-        nonNull(user);
-        return Optional.ofNullable(modelMapper.map(user, UserDTO.class));
+    public Optional<OrderDTO> toDTO(Order order) {
+        nonNull(order);
+        return Optional.ofNullable(modelMapper.map(order, OrderDTO.class));
     }
 
     @Override
-    public Optional<User> toEntity(UserDTO userDTO) {
-        nonNull(userDTO);
-        User user;
-        Long id = userDTO.getId();
+    public Optional<Order> toEntity(OrderDTO orderDTO) {
+        nonNull(orderDTO);
+        Order order;
+        Long id = orderDTO.getId();
         if (isNull(id))
-            user = Optional.ofNullable(userRepository.getOne(id)).orElse(new User());
+            order = Optional.ofNullable(orderRepository.getOne(id)).orElse(new Order());
         else
-            user = new User();
-        modelMapper.map(userDTO, user);
-        return Optional.of(user);
+            order = new Order();
+        modelMapper.map(orderDTO, order);
+        return Optional.of(order);
     }
 
-    private class UserMap extends PropertyMap<UserDTO, User> {
+    private class OrderMap extends PropertyMap<OrderDTO, Order> {
         @Override
         protected void configure() {
 
         }
     }
 
-    private class UserDTOMap extends PropertyMap<User, UserDTO> {
+    private class OrderDTOMap extends PropertyMap<Order, OrderDTO> {
         @Override
         protected void configure() {
-            using(toSexName).map(source.getUserSex(),destination.getUserSexName());
-            using(toTime).map(source.getRegisterTime(),destination.getRegisterTime());
-            using(toTime).map(source.getLastTime(),destination.getLastTime());
+            using(toStatusName).map(source.getOrderStatus(),destination.getOrderStatusName());
+            using(toTime).map(source.getOrderTime(),destination.getOrderTime());
+            using(toTime).map(source.getPlayTime(),destination.getPlayTime());
 
             using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
             using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
         }
     }
-
     // 获取更新者名称
     private Converter<Long, String> toUserName = new AbstractConverter<Long, String>() {
-        protected String convert(Long userId) {
+        protected String convert(Long id) {
             String UserName = "";
-            if (nonNull(userId)) {
-                 Optional<User> user = userRepository.findById(userId);
+            if (nonNull(id)) {
+                Optional<User> user = userRepository.findById(id);
                 if(user.isPresent())
                     UserName = user.get().getUserName();
             }
@@ -90,7 +93,6 @@ public class UserAssembler implements IDTOAssembler<UserDTO,User>{
         }
     };
 
-
     // 时间转换
     private Converter<Timestamp, String> toTime = new AbstractConverter<Timestamp, String>() {
         protected String convert(Timestamp time) {
@@ -103,23 +105,27 @@ public class UserAssembler implements IDTOAssembler<UserDTO,User>{
     };
 
 
-    // 性别
-    private Converter<Integer, String> toSexName = new AbstractConverter<Integer, String>() {
+    // 状态值
+    private Converter<Integer, String> toStatusName = new AbstractConverter<Integer, String>() {
         protected String convert(Integer status) {
             if (isNull(status))
                 return "";
             String statusStr = "";
             switch (status) {
-                case Constants.SEX_00:
-                    statusStr = Constants.SEX_00_TXT;
+                case Constants.ORDER_STATUS_01:
+                    statusStr = Constants.ORDER_STATUS_01_TXT;
                     break;
-                case Constants.SEX_01:
-                    statusStr = Constants.SEX_01_TXT;
+                case Constants.ORDER_STATUS_02:
+                    statusStr = Constants.ORDER_STATUS_02_TXT;
+                    break;
+                case Constants.ORDER_STATUS_03:
+                    statusStr = Constants.ORDER_STATUS_03_TXT;
+                    break;
+                case Constants.ORDER_STATUS_04:
+                    statusStr = Constants.ORDER_STATUS_04_TXT;
                     break;
             }
             return statusStr;
         }
     };
-
-
 }

@@ -110,8 +110,11 @@ public class SecurityConfiguration {
               .and().ignoring().antMatchers("/api/signup")
               .and().ignoring().antMatchers("/api/alive")
 
-              // PC
-              .and().ignoring().antMatchers("/api/user/**");
+              // 测试
+              .and().ignoring().antMatchers("/api/user/**")
+              .and().ignoring().antMatchers("/api/commodity/**")
+              .and().ignoring().antMatchers("/api/order/**");
+
 
     }
   }

@@ -7,8 +7,8 @@ public class CommodityDTO {
     private Long id;
 
     private Long userId;// 用户表
-    private Long type; // 字典表（类型  1.热销 2.新品上架）
-
+    private String type; // 字典表（类型  1.热销 2.新品上架）
+    private String typeName;
     private String headline; // 标题，如：商品名
     private String subtitle;// 子标题 如：商品比较详细的描述
     private String previewImg;// 预览图 图片base64
@@ -18,7 +18,7 @@ public class CommodityDTO {
     private String producedDate; // 生产日期
     private String startGuaPeriodDate;// 保质期 开始
     private String endGuaPeriodDate; // 保质期 结束
-    private Float inventory;// 库存
+    private float inventory;// 库存
     private Integer salesVolume;// 销量
     private String manufacturer;// 生产厂家
 

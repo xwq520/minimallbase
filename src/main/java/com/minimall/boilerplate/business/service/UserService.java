@@ -91,4 +91,17 @@ public class UserService {
         userRepository.save(deleteData.get());
     }
 
+
+    // 获取单条数据
+    @Transactional
+    public UserDTO userInfo(Long id){
+        Optional<User> commodity = userRepository.findById(id);
+        if(commodity.isPresent()){
+            Optional<UserDTO> userDTOOptional = userAssembler.toDTO(commodity.get());
+            if(userDTOOptional.isPresent()){
+                return userDTOOptional.get();
+            }
+        }
+        return null;
+    }
 }

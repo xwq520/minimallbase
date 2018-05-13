@@ -109,4 +109,26 @@ public class UserController {
         userService.deleteUser(id);
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
+
+    /**
+     * 单条数据
+     * @param id
+     * @return
+     */
+    @RequestMapping(method = GET,value = "/userInfo/{id}",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> userInfo (@PathVariable("id") Long id){
+        MessageObject mo = MessageObject.of(Message.I102);
+        if(CheckUtils.isEmpty(id)){
+            mo = MessageObject.of(Message.E111);
+            return new ResponseEntity<>(mo, HttpStatus.NO_CONTENT);
+        }
+        UserDTO userInfo = userService.userInfo(id);
+        if(CheckUtils.isEmpty(userInfo)){
+            mo = MessageObject.of(Message.E124);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        mo.put("userInfo",userInfo);
+        return new ResponseEntity<>(mo, HttpStatus.OK);
+    }
+
 }

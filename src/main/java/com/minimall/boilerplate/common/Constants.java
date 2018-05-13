@@ -73,17 +73,29 @@ public final class Constants {
   }
 
   // User 性别
-  public static final Integer SEX_00 = 0;
+  public static final int SEX_00 = 0;
   public static final String SEX_00_TXT = "女";
-  public static final Integer SEX_01 = 1;
+  public static final int SEX_01 = 1;
   public static final String SEX_01_TXT = "男";
 
+
   // Commodity 状态  1.待发布 2.销售中  3.已下架
-  public static final Integer COMMODITY_STATUS_00 = 0;
+  public static final int COMMODITY_STATUS_00 = 0;
   public static final String  COMMODITY_STATUS_00_TXT = "待发布";
-  public static final Integer COMMODITY_STATUS_01 = 1;
+  public static final int COMMODITY_STATUS_01 = 1;
   public static final String  COMMODITY_STATUS_01_TXT = "销售中";
-  public static final Integer COMMODITY_STATUS_02 = 1;
+  public static final int COMMODITY_STATUS_02 = 2;
   public static final String  COMMODITY_STATUS_02_TXT = "已下架";
+
+
+  //  Order 订单状态 1.待支付  2.已支付（代发货） 3.已发货  4. 已取消订单
+  public static final int ORDER_STATUS_01 = 1;
+  public static final String  ORDER_STATUS_01_TXT = "待支付";
+  public static final int ORDER_STATUS_02 = 2;
+  public static final String  ORDER_STATUS_02_TXT = "已支付";
+  public static final int ORDER_STATUS_03 = 3;
+  public static final String  ORDER_STATUS_03_TXT = "已发货";
+  public static final int ORDER_STATUS_04 = 4;
+  public static final String  ORDER_STATUS_04_TXT = "已取消订单";
 
 }

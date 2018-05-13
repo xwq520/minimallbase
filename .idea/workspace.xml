@@ -7,265 +7,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c43abdf-3c6a-45b8-9dae-4026be3b3742" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/git" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/BoilerplateApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/BoilerplateApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/CacheConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/CacheConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/MiscConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/MiscConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/SchedulingConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SchedulingConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/SecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/AssetController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/CompanyDictionaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/DepartmentController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/DictionaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/OssController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/PersonnelDictionaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/StoreBaseController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/ApplyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/AssetTransferWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/AssetWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/AssetsBaseWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/AssetsRepairWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/AttendanceWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/DepartmentWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/EmployeeInfoWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/MailboxSendingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/StoreBaseWechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/SysMessagesController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/controller/wechat/WechatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/ApplyMonthDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AreaDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetCheckDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetConditionDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetTransferDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetTransferRecordDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetsBaseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetsPositionDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetsRepairDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AssetsRepairDetailDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AttendanceApplyDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AttendanceDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/AuthorityDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/CompanyDictionaryDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/CompanyInfoDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/DepartmentDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/EmployeeInfoDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/EmployeeRegisterDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/EmployeeWebDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/FileDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/MailDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/MenuDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/PageAuthorityDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/PageDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/ParentDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/PasswordDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/PersonnelDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/PositionDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/StatisticsDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/StoreBaseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/SysMessagesDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/ThirdPartDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/UserRoleDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/WechatAccessTokenDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/WechatJsConfigDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AreaAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AssetTransferAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AssetTransferRecordAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AssetsBaseAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AssetsRepairAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AssetsRepairDetailAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AttendanceAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/AuthorityAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/DepartmentAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/EmplyeeAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/FileAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/IDTOAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/MenuAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/PageAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/PageAuthorityAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/StoreBaseAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/SysMessagesAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/ThirdPartInfoAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/UserAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/assembler/UserRoleAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/dto/converter/UpdaterUserNameConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Area.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AssetTransfer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AssetTransferRecord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AssetsBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AssetsPosition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AssetsRepair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AssetsRepairDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Attendance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AttendanceApply.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AttendanceDaily.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/AttendanceMonth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Authority.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/CompanyDictionary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/CompanyInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Department.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Dictionary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/EmployeeInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/EmployeeRelations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/File.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/InventoryExcute.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/InventoryExcuteCheck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/InventoryHistory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/InventorySchedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/MissionExecute.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/MissionNews.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/MissionPublish.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/NationalHoliday.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/NoticeModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Notification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Page.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/PageAuthority.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/PageSetting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/PersonnelDictionary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Position.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/RepairEmpDefault.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/RepairGroup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/StoreBase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/SysMessages.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/Team.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/TeamDefaultSet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/ThirdPartInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/UserRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/WorkFlowHistory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/WorkFlowManage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AreaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetTransferRecordRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetTransferRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetTransferSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetsBaseRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetsBaseSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetsPositionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetsRepairDetailRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetsRepairRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AssetsRepairSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AttendanceApplyRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AttendanceApplySpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AttendanceDailyRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AttendanceMonthRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AttendanceRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AttendanceSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AuthorityRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/AuthoritySpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/CompanyDictionaryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/CompanyDictionarySpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/CompanyInfoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/CompanyInfoSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/DepartmentRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/DepartmentSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/DictionaryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/EmployeeInfoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/EmployeeInfoSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/EmployeeRelationsRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/FileRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/FileSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/InventoryExcuteCheckRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/InventoryExcuteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/InventoryScheduleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/NationalHolidayRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/PageAuthorityRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/PageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/PageSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/PersonnelDictionaryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/PositionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/RepairEmpDefaultRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/RepairGroupRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/StoreBaseRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/StoreBaseSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/SysMessagesRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/SysMessagesSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/TeamRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/ThirdPartInfoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/ThirdPartInfoSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/UserRoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/UserRoleSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/UserSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/WorkFlowHistoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/repository/WorkFlowManageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/ApplyService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/AssetService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/AssetTransferService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/AssetsBaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/AssetsRepairService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/AttendanceService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/AuthorityService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/CompanyDictionaryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/DepartmentService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/DictionaryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/EmployeeInfoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/FileService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/MailboxSendingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/PageService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/PersonnelService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/StoreBaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/SysMessagesService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/ThirdPartInfoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/UserRoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/BusinessHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/BusinessHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/CheckUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/CheckUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/CryptoHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/CryptoHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/DateHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/DateHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/LocationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/LocationUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/MailHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/MailHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/MessageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/MessageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/RestServiceHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/RestServiceHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/StringHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/StringHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/TaskExecutorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/TaskExecutorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/WxServiceHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/WxServiceHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/oss/OSSConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/oss/OSSConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/oss/OSSUploadUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/common/oss/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/oss/SystemConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/exception/AbstractException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/AbstractException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/exception/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/BadRequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/exception/MessageException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/MessageException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/exception/MessageExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/MessageExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/exception/NotFoundRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/NotFoundRequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/exception/RequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/RequestException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/exception/RequestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/RequestExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/cfg/EntityNamingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/system/cfg/EntityNamingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/converter/ByteArrayConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/system/converter/ByteArrayConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/converter/DateTimeConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/system/converter/DateTimeConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/listener/AutoSettingEntityListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/JWTAccessDeniedHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/JWTAuthenticationFailureHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/JWTAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/JWTAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/JWTAuthenticationSuccessHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/JWTHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/JWTTokenAuthentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/LoginAuthenticationFailureHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/LoginAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/LoginAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/LoginAuthenticationSuccessHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/PostContextRefreshed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/RestAuthenticationException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/UserAuthentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/WebSecurity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/WxLoginAuthenticationFailureHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/WxLoginAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/WxLoginAuthenticationProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/WxLoginAuthenticationSuccessHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/WxchatAuthentication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/validator/FieldMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/system/validator/FieldMatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/validator/FieldMatchValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/system/validator/FieldMatchValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jeeshare/boilerplate/BoilerplateApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/minimall/boilerplate/BoilerplateApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/CommodityAssembler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/OrderAssembler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/CommoditySpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/OrderRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/OrderSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/OrderSerivce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/CommodityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/CommodityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/CommodityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/CommodityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/UserAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/UserAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/DictionaryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/DictionaryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/CommodityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/CommodityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/StringHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/StringHelper.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -291,23 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Commodity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/Commodity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommodityController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CommodityController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/CommodityController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -315,26 +63,44 @@
       <file leaf-file-name="CommodityService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/CommodityService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-140">
-              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="1000">
+              <caret line="75" selection-start-line="75" selection-end-line="86" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java">
+      <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/OrderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="210" column="49" selection-start-line="210" selection-start-column="30" selection-end-line="210" selection-end-column="49" />
+            <state relative-caret-position="1180">
+              <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommodityDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/CommodityDTO.java">
+      <file leaf-file-name="OrderDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/OrderDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+            <state relative-caret-position="360">
+              <caret line="18" column="27" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderSerivce.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/OrderSerivce.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommoditySpecification.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/CommoditySpecification.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -344,8 +110,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -361,6 +127,12 @@
       <find>redisTemplate</find>
       <find>redis</find>
       <find>jeeshare</find>
+      <find>PushbackInputStream</find>
+      <find>subtitle</find>
+      <find>originalPrice</find>
+      <find>sellingPrice</find>
+      <find>inventory</find>
+      <find>salesVolume</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -373,17 +145,15 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/service/DepartmentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/CacheConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/SchedulingConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/security/LoginAuthenticationProvider.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/SecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/listener/AutoSettingEntityListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/business/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jeeshare/boilerplate/system/cfg/EntityNamingStrategy.java" />
@@ -403,31 +173,38 @@
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/DateHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/MessageObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/StringHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/TaskExecutorFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/UserRole.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/Dictionary.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/Commodity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/UserRoleDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/OrderDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/CommodityDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/DictionaryDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/system/listener/AutoSettingEntityListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/IDTOAssembler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/UserAssembler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserSpecification.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/UserDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/Order.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/CommodityRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/CommodityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/StringHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/UserAssembler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/CommoditySpecification.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/CommodityDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/CommodityAssembler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/DictionaryRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/CommodityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/OrderRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/OrderDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/CommodityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/OrderSerivce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/OrderAssembler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/OrderSpecification.java" />
       </list>
     </option>
   </component>
@@ -478,6 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -491,11 +269,110 @@
               <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
+              <item name="assembler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jeeshareBusiness" type="b2602c69:ProjectViewProjectNode" />
+              <item name="minimallbase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="boilerplate" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1987,19 +1864,29 @@
       <workItem from="1525497817537" duration="513000" />
       <workItem from="1525608410058" duration="3179000" />
       <workItem from="1525611698490" duration="6424000" />
-      <workItem from="1526093728400" duration="15892000" />
+      <workItem from="1526093728400" duration="20545000" />
+      <workItem from="1526178936057" duration="15695000" />
+      <workItem from="1526200641696" duration="437000" />
     </task>
+    <task id="LOCAL-00001" summary="无用代码删除">
+      <created>1526127655983</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1526127655983</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41403000" />
+    <option name="totallyTimeSpent" value="62188000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.49092284" side_tool="true" weight="0.27366608" />
-      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32874355" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.49092284" side_tool="true" weight="0.27366608" />
+      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32874355" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.1505295" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
@@ -2008,26 +1895,26 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.50907713" visible="true" weight="0.39242685" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.39242685" />
+      <window_info anchor="bottom" id="Debug" order="12" sideWeight="0.50907713" weight="0.4182444" />
+      <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.70567983" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.5043029" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24357034" />
+      <window_info anchor="bottom" id="Spring" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32874355" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23903178" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" order="9" sideWeight="0.5453858" weight="0.32874355" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="15" sideWeight="0.5453858" weight="0.32874355" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.39242685" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32874355" />
@@ -2036,91 +1923,95 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_WIDTH">
+                <map>
+                  <entry key="2" value="89" />
+                  <entry key="3" value="73" />
+                </map>
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="无用代码删除" />
+    <option name="LAST_COMMIT_MESSAGE" value="无用代码删除" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="194" height="352" key="Git.Branch.Popup" />
+    <state width="194" height="352" key="Git.Branch.Popup/1366.768" />
+    <state width="194" height="352" key="Git.Branch.Popup@1366.768" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>orderDTO.getUserId()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>orderDTO.getCommodityId()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>userId</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>commodityDTO.getUserId()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>String.valueOf(commodityDTO.getUserId())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>user.get()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Constants.COMMODITY_STATUS_00</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/AbstractException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/BadRequestException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/MessageException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/MessageExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/NotFoundRequestException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/RequestException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/exception/RequestExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/BusinessHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/CheckUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/CryptoHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/LocationUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -2146,13 +2037,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/StringHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -2219,13 +2103,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/OrderDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/UserRoleDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -2247,34 +2124,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SecurityConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1140">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/system/listener/AutoSettingEntityListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/IDTOAssembler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/win 10 New/maven-repository/repository/org/springframework/data/spring-data-commons/2.0.2.RELEASE/spring-data-commons-2.0.2.RELEASE.jar!/org/springframework/data/domain/Page.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -2285,72 +2138,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/UserAssembler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
-          <folding>
-            <element signature="e#2258#2705#0" expanded="true" />
-            <element signature="e#2704#2705#0" expanded="true" />
-            <element signature="e#2178#2467#0" expanded="true" />
-            <element signature="e#2466#2467#0" expanded="true" />
-            <element signature="e#2537#2826#0" expanded="true" />
-            <element signature="e#2825#2826#0" expanded="true" />
-            <element signature="e#2891#3378#0" expanded="true" />
-            <element signature="e#3377#3378#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserSpecification.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="2" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/UserDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="98" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="98" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2361,57 +2152,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/CommodityRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="112" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="112" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/DictionaryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/CommodityDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="210" column="49" selection-start-line="210" selection-start-column="30" selection-end-line="210" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/CommodityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/win 10 New/maven-repository/repository/org/aspectj/aspectjweaver/1.8.13/aspectjweaver-1.8.13.jar!/org/aspectj/apache/bcel/classfile/Constant.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -2419,17 +2159,220 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/CommodityService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/StringHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-140">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="-101">
+          <caret line="127" column="14" lean-forward="true" selection-start-line="127" selection-start-column="14" selection-end-line="127" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/win 10 New/maven-repository/repository/org/springframework/spring-core/5.0.2.RELEASE/spring-core-5.0.2.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/win 10 New/maven-repository/repository/org/springframework/data/spring-data-commons/2.0.2.RELEASE/spring-data-commons-2.0.2.RELEASE.jar!/org/springframework/data/repository/PagingAndSortingRepository.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/win 10 New/maven-repository/repository/org/springframework/data/spring-data-commons/2.0.2.RELEASE/spring-data-commons-2.0.2.RELEASE.jar!/org/springframework/data/domain/Page.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/OrderRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserSpecification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/IDTOAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/SecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/CommodityRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/DictionaryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/CommodityDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/CheckUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/UserAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1000">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/common/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="96" column="49" selection-start-line="96" selection-start-column="30" selection-end-line="96" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/CommodityAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="25" selection-start-line="25" selection-end-line="26" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/assembler/OrderAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+          <folding>
+            <element signature="e#3119#3417#0" expanded="true" />
+            <element signature="e#3416#3417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/CommoditySpecification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/Commodity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="157">
+          <caret line="56" column="28" lean-forward="true" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/entity/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/repository/OrderSpecification.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/OrderSerivce.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="51" column="9" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/dto/OrderDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1180">
+          <caret line="81" column="40" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/service/CommodityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="75" selection-start-line="75" selection-end-line="86" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/minimall/boilerplate/business/controller/CommodityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
         </state>
       </provider>
     </entry>
