@@ -116,7 +116,13 @@ public class UserController {
     public ResponseEntity<MessageObject> userList(@RequestBody UserDTO userDTO,
                                                     @RequestHeader Map<String, String> header) {
         MessageObject mo = MessageObject.of(Message.I102);
-
+        // 头部 userId 用户i
+        if(CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
+            mo = MessageObject.of(Message.E111);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        String userId = header.get(Constants.HTTP_USER_ID);
+        userDTO.setUserId(userId);
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = toPageable(header, sort);
         List<UserDTO> userDTOS = userService.userList(userDTO,pageable,mo);

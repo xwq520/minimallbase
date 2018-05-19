@@ -1,9 +1,5 @@
 package com.minimall.boilerplate.common;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.minimall.boilerplate.common.StringHelper.joinWith;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
 /**
@@ -47,6 +43,9 @@ public final class Constants {
   public static final String HTTP_HEADER_USER_ROLE_ID = "x-user-role-id";
   // Http请求头部 JSON_UTF8类型缩写
   public static final String JSON_UTF8 = APPLICATION_JSON_UTF8_VALUE;
+
+  // http请求头部 userId 用户id
+  public static final String HTTP_USER_ID = "x-user-id";
 
   // 导出文件后缀
   public static final String EXPORT_FILE_POSTFIX = "xlsx";

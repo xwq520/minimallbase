@@ -82,7 +82,13 @@ public class OrderController {
     public ResponseEntity<MessageObject> orderList(@RequestBody OrderDTO orderDTO,
                                                    @RequestHeader Map<String, String> header) {
         MessageObject mo = MessageObject.of(Message.I102);
-
+        // 头部 userId 用户i
+        if(CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
+            mo = MessageObject.of(Message.E111);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        String userId = header.get(Constants.HTTP_USER_ID);
+        orderDTO.setUserId(Long.valueOf(userId));
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = toPageable(header, sort);
         List<OrderDTO> orderDTOs = orderSerivce.orderList(orderDTO,pageable,mo);

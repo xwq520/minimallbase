@@ -1,8 +1,6 @@
 package com.minimall.boilerplate.business.controller;
 
 import com.minimall.boilerplate.business.dto.CommodityDTO;
-import com.minimall.boilerplate.business.dto.UserDTO;
-import com.minimall.boilerplate.business.entity.Commodity;
 import com.minimall.boilerplate.business.service.CommodityService;
 import com.minimall.boilerplate.common.CheckUtils;
 import com.minimall.boilerplate.common.Constants;
@@ -62,7 +60,13 @@ public class CommodityController {
     public ResponseEntity<MessageObject> commodityList(@RequestBody CommodityDTO commodityDTO,
                                                   @RequestHeader Map<String, String> header) {
         MessageObject mo = MessageObject.of(Message.I102);
-
+        // 头部 userId 用户i
+        if(CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
+            mo = MessageObject.of(Message.E111);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        String userId = header.get(Constants.HTTP_USER_ID);
+        commodityDTO.setUserId(Long.valueOf(userId));
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = toPageable(header, sort);
         List<CommodityDTO> commodityDTOs = commodityService.commodityList(commodityDTO,pageable,mo);
