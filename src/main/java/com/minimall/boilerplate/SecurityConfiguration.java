@@ -113,8 +113,8 @@ public class SecurityConfiguration {
               // 测试
               .and().ignoring().antMatchers("/api/user/**")
               .and().ignoring().antMatchers("/api/commodity/**")
-              .and().ignoring().antMatchers("/api/order/**");
-
+              .and().ignoring().antMatchers("/api/order/**")
+              .and().ignoring().antMatchers("/api/messages/**");
 
     }
   }

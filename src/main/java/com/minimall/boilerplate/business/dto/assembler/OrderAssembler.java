@@ -87,7 +87,7 @@ public class OrderAssembler implements IDTOAssembler<OrderDTO,Order> {
         protected String convert(Long time) {
             String times = null;
             if (time != null) {
-                times = DateHelper.LongToStringFormat(time,"yyyy-MM-dd HH:mm:ss");
+                times = DateHelper.LongToStringFormat(time,DateHelper.normalFormt);
             }
             return times;
         }
@@ -98,7 +98,7 @@ public class OrderAssembler implements IDTOAssembler<OrderDTO,Order> {
         protected String convert(Timestamp time) {
             String times = null;
             if (time != null) {
-                times = DateHelper.timeStampFormater(time,"yyyy-MM-dd HH:mm:ss");
+                times = DateHelper.timeStampFormater(time,DateHelper.normalFormt);
             }
             return times;
         }

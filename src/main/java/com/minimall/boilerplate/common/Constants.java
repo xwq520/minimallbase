@@ -97,4 +97,10 @@ public final class Constants {
   public static final int ORDER_STATUS_04 = 4;
   public static final String  ORDER_STATUS_04_TXT = "已取消订单";
 
+  // 消息 0：未读 1：已读
+  public static final int MESSAGES_00 = 0;
+  public static final String  MESSAGES_00_TXT = "未读";
+  public static final int MESSAGES_01 = 1;
+  public static final String  MESSAGES_01_TXT = "已读";
+
 }
