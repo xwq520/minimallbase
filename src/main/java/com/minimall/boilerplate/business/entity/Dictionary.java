@@ -22,12 +22,7 @@ public class Dictionary implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 用户表
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "userId", referencedColumnName="userId")
-    private User user;
-
-    //字典code
+   //字典code
     private String code;
     //字典名称
     private String name;

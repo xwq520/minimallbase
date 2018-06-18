@@ -33,12 +33,19 @@ public class User implements Serializable {
     private String userId;
     // 登录密码
     private String password;
+    // 是否锁定
+    private Integer isLock = 0;
     // 验证码 ER443 34333
     private String securityCode;
     // 注册时间
     private Timestamp registerTime;
     // 最后登录时间
     private Timestamp lastTime;
+
+    // 用户角色表
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "userRoleId")
+    private UserRole userRole;
 
     // 数据版本
     @Version

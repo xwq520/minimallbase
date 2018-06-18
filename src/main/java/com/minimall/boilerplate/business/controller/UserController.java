@@ -28,11 +28,10 @@ public class UserController {
     private UserService userService;
 
     // 验证用户Id和用户密码是否存在
-    @RequestMapping(method = POST,value = "/verification",produces = Constants.JSON_UTF8)
+    @RequestMapping(method = POST,value = "/checkUser",produces = Constants.JSON_UTF8)
     public ResponseEntity<MessageObject> verification(@RequestBody UserDTO userDTO){
         MessageObject mo = MessageObject.of(Message.I101);
-        if(CheckUtils.isEmpty(userDTO.getUserId())
-                || CheckUtils.isEmpty(userDTO.getPassword())){
+        if(CheckUtils.isEmpty(userDTO.getUserId())){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
@@ -73,9 +72,7 @@ public class UserController {
         MessageObject mo = MessageObject.of(Message.I102);
         if(CheckUtils.isEmpty(userDTO.getUserName())
             || CheckUtils.isEmpty(userDTO.getUserPhone())
-            || CheckUtils.isEmpty(userDTO.getUserSex())
-            || CheckUtils.isEmpty(userDTO.getUserId())
-            || CheckUtils.isEmpty(userDTO.getPassword())){
+            || CheckUtils.isEmpty(userDTO.getUserId())){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
@@ -117,12 +114,12 @@ public class UserController {
                                                     @RequestHeader Map<String, String> header) {
         MessageObject mo = MessageObject.of(Message.I102);
         // 头部 userId 用户i
-        if(CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
-            mo = MessageObject.of(Message.E111);
-            return new ResponseEntity<>(mo, HttpStatus.OK);
-        }
-        String userId = header.get(Constants.HTTP_USER_ID);
-        userDTO.setUserId(userId);
+//        if(CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
+//            mo = MessageObject.of(Message.E111);
+//            return new ResponseEntity<>(mo, HttpStatus.OK);
+//        }
+       // String userId = header.get(Constants.HTTP_USER_ID);
+      //  userDTO.setUserId(userId);
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = toPageable(header, sort);
         List<UserDTO> userDTOS = userService.userList(userDTO,pageable,mo);
@@ -137,17 +134,17 @@ public class UserController {
 
     /**
      * 删除
-     * @param id
+     * @param userId
      * @return
      */
-    @RequestMapping(method = GET,value = "/delete/{id}",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> deletePlayManage(@PathVariable("id") Long id){
+    @RequestMapping(method = POST,value = "/delete/{id}",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> deletePlayManage(@PathVariable("id") String userId){
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(id)) {
+        if(CheckUtils.isEmpty(userId)) {
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        userService.deleteUser(id);
+        userService.deleteUser(userId);
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 

@@ -40,6 +40,7 @@ public class UserService {
         user.setUserId(userDTO.getUserId());
         user.setPassword(userDTO.getPassword());
         user.setRegisterTime(new Timestamp(System.currentTimeMillis()));
+       // user.setLastTime(new Timestamp(System.currentTimeMillis()));
         userRepository.save(user);
         return true;
     }
@@ -85,8 +86,8 @@ public class UserService {
 
     // 删除
     @Transactional
-    public void deleteUser(Long id) {
-        Optional<User> deleteData = Optional.ofNullable(userRepository.findById(id))
+    public void deleteUser(String  userId) {
+        Optional<User> deleteData = Optional.ofNullable(userRepository.findByUserId(userId))
                 .orElseThrow(() -> new NotFoundRequestException(Message.E109));
         deleteData.get().deletedAtNow();
         userRepository.save(deleteData.get());

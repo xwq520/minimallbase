@@ -22,5 +22,6 @@ public class UserDTO {
     private Long updaterId;// 更新者
     private String updaterName; // 更新者名称
     private String updateTime;// 更新时间
+    private String searchContant;// 模糊查询内容
 
 }

@@ -59,7 +59,8 @@ public class UserAssembler implements IDTOAssembler<UserDTO,User>{
             using(toSexName).map(source.getUserSex(),destination.getUserSexName());
             using(toTime).map(source.getRegisterTime(),destination.getRegisterTime());
             using(toTime).map(source.getLastTime(),destination.getLastTime());
-
+            map("",destination.getPassword());
+            map(source.getId(),destination.getId());
             using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
             using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
         }

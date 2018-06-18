@@ -18,6 +18,12 @@ public class UserSpecification {
                 String userName = userDTO.getUserName();
                 String userId = userDTO.getUserId();
                 String userPhone = userDTO.getUserPhone();
+                String searchContant = userDTO.getSearchContant();
+                if(!CheckUtils.isEmpty(searchContant)){
+                    predicates.add(builder.or(builder.or(builder.like(root.get("userName"), "%" + searchContant + "%"),
+                            builder.like(root.get("userId"), "%" + searchContant + "%"),
+                            builder.like(root.get("userPhone"), "%" + searchContant + "%"))));
+                }
 
                 if(!CheckUtils.isEmpty(userName)){
                     predicates.add(builder.like(root.get("userName"), "%" + userName + "%"));
