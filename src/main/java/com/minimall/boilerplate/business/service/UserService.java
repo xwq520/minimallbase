@@ -16,6 +16,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -33,6 +35,11 @@ public class UserService {
     // 新增
     @Transactional
     public boolean userAdd(UserDTO userDTO){
+        // 是否存在
+        Optional<User> userInfo = userRepository.findByUserInfo(userDTO.getUserId(),userDTO.getUserPhone());
+        if(userInfo.isPresent()){
+            return false;
+        }
         User user = new User();
         user.setUserName(userDTO.getUserName());
         user.setUserPhone(userDTO.getUserPhone());
@@ -59,9 +66,9 @@ public class UserService {
             if(!CheckUtils.isEmpty(userDTO.getUserSex())){
                 user.get().setUserSex(userDTO.getUserSex());
             }
-            if(!CheckUtils.isEmpty(userDTO.getUserId())){
-                user.get().setUserId(userDTO.getUserId());
-            }
+            //if(!CheckUtils.isEmpty(userDTO.getUserId())){
+            //    user.get().setUserId(userDTO.getUserId());
+            //}
             if(!CheckUtils.isEmpty(userDTO.getPassword())){
                 user.get().setPassword(userDTO.getPassword());
             }
@@ -86,11 +93,18 @@ public class UserService {
 
     // 删除
     @Transactional
-    public void deleteUser(String  userId) {
-        Optional<User> deleteData = Optional.ofNullable(userRepository.findByUserId(userId))
-                .orElseThrow(() -> new NotFoundRequestException(Message.E109));
-        deleteData.get().deletedAtNow();
-        userRepository.save(deleteData.get());
+    public void deleteUser(UserDTO userDTO) {
+        List<User> userList = new ArrayList<>();
+        Arrays.stream(userDTO.getUserIds()).forEach(userId -> {
+            Optional<User> deleteData = Optional.ofNullable(userRepository.findByUserId(userId))
+                    .orElseThrow(() -> new NotFoundRequestException(Message.E109));
+            deleteData.get().deletedAtNow();
+            userList.add(deleteData.get());
+        });
+
+        if(userList.size()>0){
+            userRepository.saveAll(userList);
+        }
     }
 
 

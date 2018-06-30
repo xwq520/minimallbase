@@ -12,6 +12,8 @@ public class UserDTO {
     private Integer userSex;// 性别 0:女 1：男
     private String userSexName;
     private String userId; // 用户Id
+    private String userIds[]; // 用户Ids
+
 
     private String password;// 登录密码
 

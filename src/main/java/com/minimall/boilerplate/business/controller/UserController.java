@@ -37,7 +37,7 @@ public class UserController {
         }
         boolean user = userService.verification(userDTO);
         if(!user){
-            mo = MessageObject.of(Message.E162);
+            mo = MessageObject.of(Message.E110);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
         return new ResponseEntity<>(mo, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class UserController {
         }
         boolean password = userService.changePassowrd(passwordDTO);
         if(!password){
-            mo = MessageObject.of(Message.E113);
+            mo = MessageObject.of(Message.E124);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
         return new ResponseEntity<>(mo, HttpStatus.OK);
@@ -78,7 +78,7 @@ public class UserController {
         }
         boolean user = userService.userAdd(userDTO);
         if(!user){
-            mo = MessageObject.of(Message.E124);
+            mo = MessageObject.of(Message.E110);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
         return new ResponseEntity<>(mo, HttpStatus.OK);
@@ -98,7 +98,7 @@ public class UserController {
         }
         boolean user = userService.userUpdate(userDTO);
         if(!user){
-            mo = MessageObject.of(Message.E124);
+            mo = MessageObject.of(Message.E110);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
         return new ResponseEntity<>(mo, HttpStatus.OK);
@@ -134,17 +134,17 @@ public class UserController {
 
     /**
      * 删除
-     * @param userId
+     * @param userDTO
      * @return
      */
-    @RequestMapping(method = POST,value = "/delete/{id}",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> deletePlayManage(@PathVariable("id") String userId){
+    @RequestMapping(method = POST,value = "/delete",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> deletePlayManage(@RequestBody UserDTO userDTO){
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(userId)) {
+        if(CheckUtils.isEmpty(userDTO.getUserIds())) {
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        userService.deleteUser(userId);
+        userService.deleteUser(userDTO);
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 
