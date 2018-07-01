@@ -30,7 +30,8 @@ public class UserController {
     @RequestMapping(method = POST,value = "/checkUser",produces = Constants.JSON_UTF8)
     public ResponseEntity<MessageObject> verification(@RequestBody UserDTO userDTO){
         MessageObject mo = MessageObject.of(Message.I101);
-        if(CheckUtils.isEmpty(userDTO.getUserId())){
+        if(CheckUtils.isEmpty(userDTO.getUserId()) ||
+                CheckUtils.isEmpty(userDTO.getPassword())){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
@@ -44,14 +45,16 @@ public class UserController {
 
     // 修改当前用户密码
     @RequestMapping(method = POST,value = "/changePassowrd",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> changePassowrd(@RequestBody PasswordDTO passwordDTO){
+    public ResponseEntity<MessageObject> changePassowrd(@RequestBody PasswordDTO passwordDTO,
+                                                        @RequestHeader Map<String, String> header){
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(passwordDTO.getUserId())
+        if(CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))
                 || CheckUtils.isEmpty(passwordDTO.getPassword())
                 || CheckUtils.isEmpty(passwordDTO.getNewPassword()) ){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
+        passwordDTO.setUserId(header.get(Constants.HTTP_USER_ID));
         boolean password = userService.changePassowrd(passwordDTO);
         if(!password){
             mo = MessageObject.of(Message.E124);

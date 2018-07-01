@@ -7,6 +7,7 @@ import com.minimall.boilerplate.business.entity.User;
 import com.minimall.boilerplate.business.repository.UserRepository;
 import com.minimall.boilerplate.business.repository.UserSpecification;
 import com.minimall.boilerplate.common.CheckUtils;
+import com.minimall.boilerplate.common.CryptoHelper;
 import com.minimall.boilerplate.common.Message;
 import com.minimall.boilerplate.common.MessageObject;
 import com.minimall.boilerplate.exception.NotFoundRequestException;
@@ -45,7 +46,9 @@ public class UserService {
         user.setUserPhone(userDTO.getUserPhone());
         user.setUserSex(userDTO.getUserSex());
         user.setUserId(userDTO.getUserId());
-        user.setPassword(userDTO.getPassword());
+        if(!CheckUtils.isEmpty(userDTO.getPassword())){
+            user.setPassword(CryptoHelper.encode(userDTO.getPassword()));
+        }
         user.setIsLock(userDTO.getIsLock());
         user.setRegisterTime(new Timestamp(System.currentTimeMillis()));
        // user.setLastTime(new Timestamp(System.currentTimeMillis()));
@@ -71,7 +74,7 @@ public class UserService {
             //    user.get().setUserId(userDTO.getUserId());
             //}
             if(!CheckUtils.isEmpty(userDTO.getPassword())){
-                user.get().setPassword(userDTO.getPassword());
+                user.get().setPassword(CryptoHelper.encode(userDTO.getPassword()));
             }
             if(!CheckUtils.isEmpty(userDTO.getIsLock())){
                 user.get().setIsLock(userDTO.getIsLock());
@@ -112,7 +115,7 @@ public class UserService {
     }
 
 
-    // 获取单条数据
+  /*  // 获取单条数据
     @Transactional
     public UserDTO userInfo(Long id){
         Optional<User> commodity = userRepository.findById(id);
@@ -123,12 +126,12 @@ public class UserService {
             }
         }
         return null;
-    }
+    }*/
 
     // 验证用户Id和用户密码是否存在
     @Transactional
     public boolean verification(UserDTO userDTO){
-        Optional<User> user = userRepository.findByUserIdAndPassword(userDTO.getUserId(),userDTO.getPassword());
+        Optional<User> user = userRepository.findByUserIdAndPassword(userDTO.getUserId(),CryptoHelper.encode(userDTO.getPassword()));
         if(user.isPresent()){
             return true;
         }
@@ -138,17 +141,17 @@ public class UserService {
     // 修改当前用户密码
     @Transactional
     public boolean changePassowrd(PasswordDTO passwordDTO) {
-        Optional<User> user = userRepository.findByUserIdAndPassword(passwordDTO.getUserId(),passwordDTO.getPassword());
+        String pwd = CryptoHelper.encode(passwordDTO.getPassword());
+        // 验证原密码
+        Optional<User> user = userRepository.findByUserId(passwordDTO.getUserId());
         if(user.isPresent()){
-            // 验证原密码
-            if(passwordDTO.getPassword().equals(user.get().getPassword())){
-                // 保存修改后密码
-                user.get().setPassword(passwordDTO.getNewPassword());
-                userRepository.save(user.get());
-                return true;
-            } else {
+            if(!CryptoHelper.verify(passwordDTO.getPassword(),user.get().getPassword())){
                 return false;
             }
+            // 保存修改后密码
+            user.get().setPassword(CryptoHelper.encode(passwordDTO.getNewPassword()));
+            userRepository.save(user.get());
+            return true;
         }
         return false;
     }

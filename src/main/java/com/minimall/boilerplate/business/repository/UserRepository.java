@@ -11,7 +11,7 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
 
     Optional<User> findByUserId(String userId);
 
-    @Query(value = " select * from  mi_user where (userId = ?1 or userPhone = ?2) ",nativeQuery = true)
+    @Query(value = " select * from  mi_user where (userId = ?1 or userPhone = ?2) and deletedAt = 0",nativeQuery = true)
     Optional<User> findByUserInfo(String userId,String userPhone);
 
     Optional<User> findByUserIdAndPassword(String userId,String password);

@@ -2,7 +2,6 @@ package com.minimall.boilerplate.common;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import static com.minimall.boilerplate.common.StringHelper.isNullOrEmpty;
 
 /**
  * Title: 加密帮助类.
