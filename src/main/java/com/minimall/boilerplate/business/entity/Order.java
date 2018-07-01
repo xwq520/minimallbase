@@ -32,15 +32,17 @@ public class Order implements Serializable {
     @JoinColumn(name = "commodityId")
     private Commodity commodity;
 
+    private String commodityNo;
+    private String commodityName;
     // 用户表
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
     @JoinColumn(name = "userId", referencedColumnName="userId")
     private User user;
-
+    private String orderNo;
     // 购买数量
     private Integer purchaseQuantity;
     // 订单金额
-    private Float orderMoney;
+    private Double orderMoney;
     // 收货地址
     private String address;
     // 订单状态 1.待支付  2.已支付（代发货） 3.已发货  4. 已取消订单

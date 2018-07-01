@@ -61,8 +61,10 @@ public class UserAssembler implements IDTOAssembler<UserDTO,User>{
             using(toTime).map(source.getLastTime(),destination.getLastTime());
             map("",destination.getPassword());
             map(source.getId(),destination.getId());
-            using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
-            using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
+            map(source.getIsLock(),destination.getIsLock());
+            using(isLock).map(source.getIsLock(),destination.getLockTxt());
+           // using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
+           // using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
         }
     }
 
@@ -122,5 +124,22 @@ public class UserAssembler implements IDTOAssembler<UserDTO,User>{
         }
     };
 
+    // is lock
+    private Converter<Integer, String> isLock = new AbstractConverter<Integer, String>() {
+        protected String convert(Integer status) {
+            if (isNull(status))
+                return "";
+            String statusStr = "";
+            switch (status) {
+                case Constants.LOCK_00:
+                    statusStr = Constants.LOCK_00_TXT;
+                    break;
+                case Constants.LOCK_01:
+                    statusStr = Constants.LOCK_01_TXT;
+                    break;
+            }
+            return statusStr;
+        }
+    };
 
 }

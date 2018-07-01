@@ -26,6 +26,7 @@ public final class DateHelper {
   public static final String dateFormt = "yyyyMMdd";
   public static final String defualtFormt = "yyyy-MM-dd";
   public static final String normalFormt = "yyyy-MM-dd HH:mm:ss";
+  public static final String normalFormtNo = "yyyyMMddHHmmss";
 
   private static final ZoneId SYSTEM_DEFAULT_ZONE_ID = ZoneId.systemDefault();
 

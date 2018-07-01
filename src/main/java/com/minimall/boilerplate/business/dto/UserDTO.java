@@ -14,7 +14,8 @@ public class UserDTO {
     private String userId; // 用户Id
     private String userIds[]; // 用户Ids
 
-
+    private Integer isLock;// 是否锁住
+    private String lockTxt;// 是否锁住
     private String password;// 登录密码
 
     private String securityCode;// 验证码 ER443 34333

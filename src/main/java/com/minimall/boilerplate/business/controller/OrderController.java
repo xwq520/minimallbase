@@ -88,7 +88,7 @@ public class OrderController {
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
         String userId = header.get(Constants.HTTP_USER_ID);
-        orderDTO.setUserId(Long.valueOf(userId));
+        orderDTO.setUserId(userId);
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = toPageable(header, sort);
         List<OrderDTO> orderDTOs = orderSerivce.orderList(orderDTO,pageable,mo);

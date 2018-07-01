@@ -15,10 +15,16 @@ public class CommoditySpecification {
         return (root, query, builder) -> {
             List<Predicate> predicates = new ArrayList<>();
             if (nonNull(commodityDTO)) {
-                int commodityStatus = commodityDTO.getCommodityStatus();
+                String searchContant = commodityDTO.getSearchContant();
+                predicates.add(builder.equal(root.get("user").get("userId"),commodityDTO.getUserId()));
 
-                if(!CheckUtils.isEmpty(commodityStatus)){
-                    predicates.add(builder.equal(root.get("commodityStatus"),commodityStatus));
+                if(!CheckUtils.isEmpty(commodityDTO.getCommodityStatus())){
+                    predicates.add(builder.equal(root.get("commodityStatus"),commodityDTO.getCommodityStatus()));
+                }
+
+                if(!CheckUtils.isEmpty(searchContant)){
+                    predicates.add(builder.or(builder.or(builder.like(root.get("headline"), "%" + searchContant + "%"),
+                            builder.like(root.get("subtitle"), "%" + searchContant + "%"))));
                 }
 
             }

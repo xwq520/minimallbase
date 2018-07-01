@@ -7,10 +7,12 @@ import com.minimall.boilerplate.business.repository.OrderRepository;
 import com.minimall.boilerplate.business.repository.UserRepository;
 import com.minimall.boilerplate.common.Constants;
 import com.minimall.boilerplate.common.DateHelper;
+import com.minimall.boilerplate.common.Utils;
 import org.modelmapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.rmi.CORBA.Util;
 import java.sql.Timestamp;
 import java.util.Optional;
 import static java.util.Objects.isNull;
@@ -63,11 +65,25 @@ public class OrderAssembler implements IDTOAssembler<OrderDTO,Order> {
             using(toStatusName).map(source.getOrderStatus(),destination.getOrderStatusName());
             using(toTime).map(source.getOrderTime(),destination.getOrderTime());
             using(toTime).map(source.getPlayTime(),destination.getPlayTime());
-
-            using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
-            using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
+            using(toTime).map(source.getCancelTime(),destination.getCancelTime());
+            using(toTime).map(source.getShipmentsTime(),destination.getShipmentsTime());
+            using(moneyFormart).map(source.getOrderMoney(),destination.getOrderMoney());
+            map(source.getCommodity().getHeadline(),destination.getCommodityName());
+            map(source.getCommodity().getComNo(),destination.getCommodityNo());
+           // using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
+            // using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
         }
     }
+
+    private Converter<Double, String> moneyFormart = new AbstractConverter<Double, String>() {
+        protected String convert(Double money) {
+            if (nonNull(money)) {
+               return Utils.formatMoney(money,Utils.moneyFormat);
+            }
+            return "";
+        }
+    };
+
     // 获取更新者名称
     private Converter<Long, String> toUserName = new AbstractConverter<Long, String>() {
         protected String convert(Long id) {

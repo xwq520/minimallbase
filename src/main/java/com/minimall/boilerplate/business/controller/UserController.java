@@ -18,7 +18,6 @@ import java.util.Map;
 import static com.minimall.boilerplate.common.BusinessHelper.PageableConverter.toPageable;
 import static java.util.Objects.nonNull;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 @RequestMapping("/api/user")
@@ -153,7 +152,7 @@ public class UserController {
      * @param id
      * @return
      */
-    @RequestMapping(method = GET,value = "/userInfo/{id}",produces = Constants.JSON_UTF8)
+   /* @RequestMapping(method = GET,value = "/userInfo/{id}",produces = Constants.JSON_UTF8)
     public ResponseEntity<MessageObject> userInfo (@PathVariable("id") Long id){
         MessageObject mo = MessageObject.of(Message.I102);
         if(CheckUtils.isEmpty(id)){
@@ -167,6 +166,6 @@ public class UserController {
         }
         mo.put("userInfo",userInfo);
         return new ResponseEntity<>(mo, HttpStatus.OK);
-    }
+    }*/
 
 }

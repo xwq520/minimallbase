@@ -18,7 +18,6 @@ import java.util.Map;
 
 import static com.minimall.boilerplate.common.BusinessHelper.PageableConverter.toPageable;
 import static java.util.Objects.nonNull;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
@@ -34,14 +33,16 @@ public class CommodityController {
      * @return
      */
     @RequestMapping(method = POST,value = "/add",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> commodityAdd(@RequestBody CommodityDTO commodityDTO){
+    public ResponseEntity<MessageObject> commodityAdd(@RequestBody CommodityDTO commodityDTO,
+                                                      @RequestHeader Map<String, String> header){
         MessageObject mo = MessageObject.of(Message.I102);
         if(CheckUtils.isEmpty(commodityDTO.getHeadline())
-                || CheckUtils.isEmpty(commodityDTO.getSubtitle())
-                || CheckUtils.isEmpty(commodityDTO.getOriginalPrice()) ){
+                || CheckUtils.isEmpty(commodityDTO.getSubtitle())||
+                CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
+        commodityDTO.setUserId(header.get(Constants.HTTP_USER_ID));
         boolean commodity = commodityService.commodityAdd(commodityDTO);
         if(!commodity){
             mo = MessageObject.of(Message.E124);
@@ -66,7 +67,7 @@ public class CommodityController {
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
         String userId = header.get(Constants.HTTP_USER_ID);
-        commodityDTO.setUserId(Long.valueOf(userId));
+        commodityDTO.setUserId(userId);
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = toPageable(header, sort);
         List<CommodityDTO> commodityDTOs = commodityService.commodityList(commodityDTO,pageable,mo);
@@ -84,12 +85,15 @@ public class CommodityController {
      * @return
      */
     @RequestMapping(method = POST,value = "/update",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> commodityUpdate(@RequestBody CommodityDTO commodityDTO){
+    public ResponseEntity<MessageObject> commodityUpdate(@RequestBody CommodityDTO commodityDTO ,
+                                                         @RequestHeader Map<String, String> header){
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(commodityDTO.getId())){
+        if(CheckUtils.isEmpty(commodityDTO.getId())|| CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
+        String userId = header.get(Constants.HTTP_USER_ID);
+        commodityDTO.setUserId(userId);
         boolean commodity = commodityService.commodityUpdate(commodityDTO);
         if(!commodity){
             mo = MessageObject.of(Message.E124);
@@ -101,17 +105,20 @@ public class CommodityController {
 
     /**
      * 删除
-     * @param id
+     * @param commodityDTO
      * @return
      */
-    @RequestMapping(method = GET,value = "/delete/{id}",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> deletePlayManage(@PathVariable("id") Long id){
+    @RequestMapping(method = POST,value = "/delete",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> deletePlayManage(@RequestBody CommodityDTO commodityDTO,
+                                                          @RequestHeader Map<String, String> header){
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(id)) {
+        if(CheckUtils.isEmpty(commodityDTO.getDelIds())||
+                CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))) {
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        commodityService.delete(id);
+        commodityDTO.setUserId(header.get(Constants.HTTP_USER_ID));
+        commodityService.delete(commodityDTO);
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 
@@ -119,7 +126,7 @@ public class CommodityController {
      * 获取单条数据
      * @param commodityId
      * @return
-     */
+     *//*
     @RequestMapping(method = GET,value = "/commodityInfo/{commodityId}",produces = Constants.JSON_UTF8)
     public ResponseEntity<MessageObject> commodityInfo (@PathVariable("commodityId") Long commodityId){
         MessageObject mo = MessageObject.of(Message.I102);
@@ -135,5 +142,5 @@ public class CommodityController {
         mo.put("commodityInfo",commodityInfo);
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
-
+*/
 }

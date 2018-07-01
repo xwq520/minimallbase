@@ -34,19 +34,22 @@ public class Commodity implements Serializable {
     @JoinColumn(name = "type")
     private Dictionary dictionary;
 
+    // 商品名No
+    private String comNo;
     // 标题，如：商品名
     private String headline;
     // 子标题 如：商品比较详细的描述
     private String subtitle;
     // 预览图 图片base64
+    @Column(length = 16777216)
     private String previewImg;
     // 商品详情 如：淘宝网商品详情描述
     @Column(length = 16777216)
     private String commodityDetails;
     // 原价
-    private float originalPrice;
+    private Double originalPrice;
     // 售价
-    private float sellingPrice;
+    private Double sellingPrice;
     // 生产日期
     private Timestamp producedDate;
     // 保质期 开始
@@ -54,7 +57,7 @@ public class Commodity implements Serializable {
     // 保质期 结束
     private Timestamp endGuaPeriodDate;
     // 库存
-    private Float inventory;
+    private Integer inventory;
     // 销量
     private Integer salesVolume;
     // 生产厂家

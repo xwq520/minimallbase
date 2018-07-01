@@ -16,9 +16,17 @@ public class OrderSpecification {
             List<Predicate> predicates = new ArrayList<>();
             if (nonNull(orderDTO)) {
                 Integer orderStatus = orderDTO.getOrderStatus();
+                String searchContant = orderDTO.getSearchContant();
+
+                predicates.add(builder.equal(root.get("commodity").get("user").get("userId"),orderDTO.getUserId()));
 
                 if(!CheckUtils.isEmpty(orderStatus)){
                     predicates.add(builder.equal(root.get("orderStatus"),orderStatus));
+                }
+
+                if(!CheckUtils.isEmpty(searchContant)){
+                    predicates.add(builder.or(builder.or(builder.like(root.get("commodity").get("headline"), "%" + searchContant + "%"),
+                            builder.like(root.get("address"), "%" + searchContant + "%"))));
                 }
             }
             query.distinct(true);

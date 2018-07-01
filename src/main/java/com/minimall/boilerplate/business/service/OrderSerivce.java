@@ -4,10 +4,10 @@ import com.minimall.boilerplate.business.dto.OrderDTO;
 import com.minimall.boilerplate.business.dto.assembler.OrderAssembler;
 import com.minimall.boilerplate.business.entity.Commodity;
 import com.minimall.boilerplate.business.entity.Order;
-import com.minimall.boilerplate.business.entity.User;
 import com.minimall.boilerplate.business.repository.*;
 import com.minimall.boilerplate.common.CheckUtils;
 import com.minimall.boilerplate.common.Constants;
+import com.minimall.boilerplate.common.DateHelper;
 import com.minimall.boilerplate.common.MessageObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,8 +31,8 @@ public class OrderSerivce {
     private OrderRepository orderRepository;
     @Autowired
     private CommodityRepository commodityRepository;
-    @Autowired
-    private UserRepository userRepository;
+   // @Autowired
+   // private UserRepository userRepository;
     @Autowired
     private OrderAssembler orderAssembler;
 
@@ -45,14 +46,12 @@ public class OrderSerivce {
             return false;
         }
         order.setCommodity(commodity.get());
-        // 用户
-        Optional<User> user = userRepository.findByUserId(String.valueOf(orderDTO.getUserId()));
-        if(!user.isPresent()){
-            return false;
-        }
-        order.setUser(user.get());
+        order.setOrderNo("O"+DateHelper.LongToStringFormat(System.currentTimeMillis(),DateHelper.normalFormtNo)+ ""+ (int)((Math.random()*9+1)*1000));
+        order.setUser(commodity.get().getUser());
+        order.setCommodityNo(commodity.get().getComNo());
+        order.setCommodityName(commodity.get().getHeadline());
         order.setPurchaseQuantity(orderDTO.getPurchaseQuantity());
-        order.setOrderMoney(orderDTO.getOrderMoney());
+        order.setOrderMoney(nonNull(Double.valueOf(orderDTO.getOrderMoney()))?Double.valueOf(orderDTO.getOrderMoney()):0);
         order.setAddress(orderDTO.getAddress());
         order.setOrderStatus(Constants.ORDER_STATUS_01); // 默认为待支付
         order.setPlayTime(new Timestamp(System.currentTimeMillis())); // 支付时间
@@ -75,7 +74,7 @@ public class OrderSerivce {
                     order.get().setPurchaseQuantity(orderDTO.getPurchaseQuantity());
                 }
                 if(!CheckUtils.isEmpty(orderDTO.getOrderMoney())){
-                    order.get().setOrderMoney(orderDTO.getOrderMoney());
+                    order.get().setOrderMoney(Double.valueOf(orderDTO.getOrderMoney()));
                 }
                 if(!CheckUtils.isEmpty(orderDTO.getAddress())){
                     order.get().setAddress(orderDTO.getAddress());

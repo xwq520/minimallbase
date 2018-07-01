@@ -46,6 +46,7 @@ public class UserService {
         user.setUserSex(userDTO.getUserSex());
         user.setUserId(userDTO.getUserId());
         user.setPassword(userDTO.getPassword());
+        user.setIsLock(userDTO.getIsLock());
         user.setRegisterTime(new Timestamp(System.currentTimeMillis()));
        // user.setLastTime(new Timestamp(System.currentTimeMillis()));
         userRepository.save(user);
@@ -71,6 +72,9 @@ public class UserService {
             //}
             if(!CheckUtils.isEmpty(userDTO.getPassword())){
                 user.get().setPassword(userDTO.getPassword());
+            }
+            if(!CheckUtils.isEmpty(userDTO.getIsLock())){
+                user.get().setIsLock(userDTO.getIsLock());
             }
             userRepository.save(user.get());
         }

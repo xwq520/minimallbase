@@ -7,6 +7,7 @@ import com.minimall.boilerplate.business.repository.CommodityRepository;
 import com.minimall.boilerplate.business.repository.UserRepository;
 import com.minimall.boilerplate.common.Constants;
 import com.minimall.boilerplate.common.DateHelper;
+import com.minimall.boilerplate.common.Utils;
 import org.modelmapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -62,18 +63,28 @@ public class CommodityAssembler implements IDTOAssembler<CommodityDTO,Commodity>
         @Override
         protected void configure() {
             using(toStatusName).map(source.getCommodityStatus(),destination.getCommodityStatusName());
-            using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
-            using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
+        //    using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());
+         //   using(toUserName).map(source.getUpdaterId(),destination.getUpdaterName());
 
-            using(toTime).map(source.getProducedDate(),destination.getProducedDate());
-            using(toTime).map(source.getStartGuaPeriodDate(),destination.getStartGuaPeriodDate());
-            using(toTime).map(source.getEndGuaPeriodDate(),destination.getEndGuaPeriodDate());
-
+          //  using(toTime).map(source.getProducedDate(),destination.getProducedDate());
+            //using(toTime).map(source.getStartGuaPeriodDate(),destination.getStartGuaPeriodDate());
+          //  using(toTime).map(source.getEndGuaPeriodDate(),destination.getEndGuaPeriodDate());
+            using(moneyFormart).map(source.getOriginalPrice(),destination.getOriginalPrice());
+            using(moneyFormart).map(source.getSellingPrice(),destination.getSellingPrice());
             map(source.getDictionary().getCode(),destination.getType());
             map(source.getDictionary().getName(),destination.getTypeName());
 
         }
     }
+
+    private Converter<Double, String> moneyFormart = new AbstractConverter<Double, String>() {
+        protected String convert(Double money) {
+            if (nonNull(money)) {
+                return Utils.formatMoney(money,Utils.moneyFormat);
+            }
+            return "";
+        }
+    };
 
     // 状态值
     private Converter<Integer, String> toStatusName = new AbstractConverter<Integer, String>() {
@@ -116,17 +127,6 @@ public class CommodityAssembler implements IDTOAssembler<CommodityDTO,Commodity>
             String times = null;
             if (time != null) {
                 times = DateHelper.LongToStringFormat(time,DateHelper.normalFormt);
-            }
-            return times;
-        }
-    };
-
-    // 时间转换
-    private Converter<Timestamp, String> toTime = new AbstractConverter<Timestamp, String>() {
-        protected String convert(Timestamp time) {
-            String times = null;
-            if (time != null) {
-                times = DateHelper.timeStampFormater(time,DateHelper.normalFormt);
             }
             return times;
         }
