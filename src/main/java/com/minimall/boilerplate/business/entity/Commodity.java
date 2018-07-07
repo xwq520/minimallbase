@@ -2,6 +2,8 @@ package com.minimall.boilerplate.business.entity;
 
 import com.minimall.boilerplate.system.listener.AutoSettingEntityListener;
 import lombok.Data;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,6 +17,8 @@ import java.sql.Timestamp;
 @EntityListeners(AutoSettingEntityListener.class)
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "uk_commodity_id_deletedAt", columnNames = {"id", "deletedAt"})
+},indexes = {
+        @Index(columnList = "userId",name = "userId")
 })
 @Where(clause = "deletedAt = 0")
 @Data
@@ -27,6 +31,7 @@ public class Commodity implements Serializable {
     // 用户表
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
     @JoinColumn(name = "userId", referencedColumnName="userId")
+    @NotFound(action = NotFoundAction.IGNORE)
     private User user;
 
     // 字典表（类型  1.热销 2.新品上架）

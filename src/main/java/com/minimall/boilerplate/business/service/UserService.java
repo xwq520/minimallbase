@@ -131,17 +131,22 @@ public class UserService {
     // 验证用户Id和用户密码是否存在
     @Transactional
     public boolean verification(UserDTO userDTO){
-        Optional<User> user = userRepository.findByUserIdAndPassword(userDTO.getUserId(),CryptoHelper.encode(userDTO.getPassword()));
+        Optional<User> user = userRepository.findByUserId(userDTO.getUserId());
         if(user.isPresent()){
-            return true;
+            if(CryptoHelper.verify(userDTO.getPassword(),user.get().getPassword())){
+                return true;
+            }
         }
         return false;
     }
-
-    // 修改当前用户密码
+/*
+    public static void main(String[] args) {
+        System.out.print(CryptoHelper.encode("123456"));
+    }*/
+        // 修改当前用户密码
     @Transactional
     public boolean changePassowrd(PasswordDTO passwordDTO) {
-        String pwd = CryptoHelper.encode(passwordDTO.getPassword());
+       // String pwd = CryptoHelper.encode(passwordDTO.getPassword());
         // 验证原密码
         Optional<User> user = userRepository.findByUserId(passwordDTO.getUserId());
         if(user.isPresent()){
@@ -155,6 +160,4 @@ public class UserService {
         }
         return false;
     }
-
-
 }

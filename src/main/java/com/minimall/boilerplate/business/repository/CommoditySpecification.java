@@ -24,7 +24,8 @@ public class CommoditySpecification {
 
                 if(!CheckUtils.isEmpty(searchContant)){
                     predicates.add(builder.or(builder.or(builder.like(root.get("headline"), "%" + searchContant + "%"),
-                            builder.like(root.get("subtitle"), "%" + searchContant + "%"))));
+                            builder.like(root.get("subtitle"), "%" + searchContant + "%"),
+                            builder.like(root.get("comNo"), "%" + searchContant + "%"))));
                 }
 
             }

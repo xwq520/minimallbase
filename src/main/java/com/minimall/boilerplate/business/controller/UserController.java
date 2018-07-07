@@ -27,6 +27,7 @@ public class UserController {
     private UserService userService;
 
     // 验证用户Id和用户密码是否存在
+    // 登录认证
     @RequestMapping(method = POST,value = "/checkUser",produces = Constants.JSON_UTF8)
     public ResponseEntity<MessageObject> verification(@RequestBody UserDTO userDTO){
         MessageObject mo = MessageObject.of(Message.I101);
@@ -37,7 +38,7 @@ public class UserController {
         }
         boolean user = userService.verification(userDTO);
         if(!user){
-            mo = MessageObject.of(Message.E110);
+            mo = MessageObject.of(Message.E109);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
         return new ResponseEntity<>(mo, HttpStatus.OK);

@@ -1,14 +1,12 @@
 package com.minimall.boilerplate.business.service;
 
 import com.minimall.boilerplate.business.dto.OrderDTO;
+import com.minimall.boilerplate.business.dto.OrderHomeDTO;
 import com.minimall.boilerplate.business.dto.assembler.OrderAssembler;
 import com.minimall.boilerplate.business.entity.Commodity;
 import com.minimall.boilerplate.business.entity.Order;
 import com.minimall.boilerplate.business.repository.*;
-import com.minimall.boilerplate.common.CheckUtils;
-import com.minimall.boilerplate.common.Constants;
-import com.minimall.boilerplate.common.DateHelper;
-import com.minimall.boilerplate.common.MessageObject;
+import com.minimall.boilerplate.common.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -67,30 +66,35 @@ public class OrderSerivce {
         if(!CheckUtils.isEmpty(orderDTO.getId())){
             Optional<Order> order = orderRepository.findById(orderDTO.getId());
             if(order.isPresent()){
+                if(!order.get().getOrderNo().equals(orderDTO.getOrderNo()) ||
+                        !order.get().getCommodity().getComNo().equals(orderDTO.getCommodityNo()) ||
+                        !order.get().getUser().getUserId().equals(orderDTO.getUserId())){
+                    return  false;
+                }
                 if(!CheckUtils.isEmpty(orderDTO.getOrderStatus())){
                     order.get().setOrderStatus(orderDTO.getOrderStatus());
                 }
-                if(!CheckUtils.isEmpty(orderDTO.getPurchaseQuantity())){
+              /*  if(!CheckUtils.isEmpty(orderDTO.getPurchaseQuantity())){
                     order.get().setPurchaseQuantity(orderDTO.getPurchaseQuantity());
                 }
                 if(!CheckUtils.isEmpty(orderDTO.getOrderMoney())){
                     order.get().setOrderMoney(Double.valueOf(orderDTO.getOrderMoney()));
-                }
-                if(!CheckUtils.isEmpty(orderDTO.getAddress())){
-                    order.get().setAddress(orderDTO.getAddress());
-                }
+                }*/
+
                 // 支付时间
-                if(!CheckUtils.isEmpty(orderDTO.getOrderStatus())
+               /* if(!CheckUtils.isEmpty(orderDTO.getOrderStatus())
                         && orderDTO.getOrderStatus() == Constants.ORDER_STATUS_02){
                     order.get().setPlayTime(new Timestamp(System.currentTimeMillis()));
-                }
+                }*/
+
+                order.get().setRemarks(orderDTO.getRemarks());
                 // 发货时间
                 if(!CheckUtils.isEmpty(orderDTO.getOrderStatus())
                         && orderDTO.getOrderStatus() == Constants.ORDER_STATUS_03){
                     order.get().setShipmentsTime(new Timestamp(System.currentTimeMillis()));
                 }
                 // 取消订单时间
-                if(!CheckUtils.isEmpty(orderDTO.getOrderStatus())
+                else if(!CheckUtils.isEmpty(orderDTO.getOrderStatus())
                         && orderDTO.getOrderStatus() == Constants.ORDER_STATUS_04){
                     order.get().setCancelTime(new Timestamp(System.currentTimeMillis()));
                 }
@@ -112,6 +116,53 @@ public class OrderSerivce {
                 .map(orderAssembler::toDTO)
                 .flatMap(dto -> dto.isPresent() ? Stream.of(dto.get()) : Stream.empty())
                 .collect(Collectors.toList());
+    }
+
+
+    // 销售统计列表
+    @Transactional
+    public List<OrderHomeDTO> orderVolumeList(String userId){
+
+        List<Object[]>  orderObjs = orderRepository.findByOrderVolumeList(userId);
+        List<OrderHomeDTO> orders = new ArrayList<>();
+        if (!CheckUtils.isEmpty(orderObjs))
+            orderObjs.stream().forEach(orderobj -> {
+                OrderHomeDTO dto = new OrderHomeDTO();
+                //商品No
+                if (!CheckUtils.isEmpty(orderobj[0])) {
+                    dto.setCommodityNo(orderobj[0].toString());
+                }
+                //商品Name
+                if (!CheckUtils.isEmpty(orderobj[1])) {
+                    dto.setCommodityName(orderobj[1].toString());
+                }
+                //销售
+                if (!CheckUtils.isEmpty(orderobj[2])) {
+                    dto.setCountNum(orderobj[2].toString());
+                }
+
+                orders.add(dto);
+            });
+
+        return  orders;
+    }
+
+    //  首页 销售总数量
+    @Transactional
+    public OrderHomeDTO findByCountOrderInfo(String userId){
+
+        OrderHomeDTO orderHomeDTO = new OrderHomeDTO();
+        List<Object[]>  objArr = orderRepository.findByCountOrderInfo(userId);
+        if(!CheckUtils.isEmpty(objArr) && objArr.size()>0){
+            String sumCount = objArr.get(0)[0].toString();
+            orderHomeDTO.setSumCount(sumCount);
+            String sumMoney = objArr.get(0)[1].toString();
+            orderHomeDTO.setSumMoney(Utils.formatMoney(Double.valueOf(sumMoney),Utils.moneyFormat));
+            String waritCount = objArr.get(0)[2].toString();
+            orderHomeDTO.setWaritCount(waritCount);
+        }
+
+        return orderHomeDTO;
     }
 
 

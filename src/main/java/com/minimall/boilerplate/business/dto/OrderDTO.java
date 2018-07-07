@@ -30,4 +30,6 @@ public class OrderDTO {
     private String updaterName; // 更新者名称
     private String updateTime;// 更新时间
     private String searchContant;
+    private String remarks;
+
 }

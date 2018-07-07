@@ -2,6 +2,8 @@ package com.minimall.boilerplate.business.entity;
 
 import com.minimall.boilerplate.system.listener.AutoSettingEntityListener;
 import lombok.Data;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.annotations.Where;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,6 +18,9 @@ import java.sql.Timestamp;
 @EntityListeners(AutoSettingEntityListener.class)
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "uk_order_id_deletedAt", columnNames = {"id", "deletedAt"})
+},indexes = {
+        @Index(columnList = "userId",name = "userId"),
+        @Index(columnList = "commodityId",name = "commodityId")
 })
 @Where(clause = "deletedAt = 0")
 @Data
@@ -30,22 +35,25 @@ public class Order implements Serializable {
     // 商品表
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
     @JoinColumn(name = "commodityId")
+    @NotFound(action = NotFoundAction.IGNORE)
     private Commodity commodity;
 
     private String commodityNo;
     private String commodityName;
+    // 收货地址
+    private String address;
     // 用户表
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
     @JoinColumn(name = "userId", referencedColumnName="userId")
+    @NotFound(action = NotFoundAction.IGNORE)
     private User user;
     private String orderNo;
     // 购买数量
     private Integer purchaseQuantity;
     // 订单金额
     private Double orderMoney;
-    // 收货地址
-    private String address;
-    // 订单状态 1.待支付  2.已支付（代发货） 3.已发货  4. 已取消订单
+
+    // 订单状态 1.待支付  2.已支付（待发货） 3.已发货  4. 已取消订单
     private int orderStatus;
     // 支付时间
     private Timestamp playTime;
@@ -53,6 +61,8 @@ public class Order implements Serializable {
     private Timestamp shipmentsTime;
     // 取消订单时间
     private Timestamp cancelTime;
+    // 备注
+    private String remarks;
 
     // 数据版本
     @Version
