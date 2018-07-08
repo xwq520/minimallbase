@@ -29,6 +29,8 @@ public final class Constants {
 
   // http请求头部 userId 用户id
   public static final String HTTP_USER_ID = "x-user-id";
+  // http请求头部 codeKey
+  public static final String HTTP_CODE_KEY = "x-code-key";
 
 
   private Constants() {

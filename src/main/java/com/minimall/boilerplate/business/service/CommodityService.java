@@ -73,6 +73,15 @@ public class CommodityService {
    // 列表
    @Transactional
    public List<CommodityDTO> commodityList(CommodityDTO commodityDTO, Pageable pageable, MessageObject mo){
+        // wechat search list
+        if(!CheckUtils.isEmpty(commodityDTO.getCodeKey())){
+            Optional<User>  optional = userRepository.findByCodeKey(commodityDTO.getCodeKey());
+            if(!optional.isPresent()){
+                return null;
+            }
+            commodityDTO.setCodeKey("");
+            commodityDTO.setUserId(optional.get().getUserId());
+        }
        Page<Commodity> commodities = commodityRepository.findAll(CommoditySpecification.conditionQuerySpec(commodityDTO), pageable);
        if(nonNull(commodities)){
            mo.put("total", commodities.getTotalElements());

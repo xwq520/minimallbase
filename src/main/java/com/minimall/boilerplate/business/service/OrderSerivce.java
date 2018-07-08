@@ -5,6 +5,7 @@ import com.minimall.boilerplate.business.dto.OrderHomeDTO;
 import com.minimall.boilerplate.business.dto.assembler.OrderAssembler;
 import com.minimall.boilerplate.business.entity.Commodity;
 import com.minimall.boilerplate.business.entity.Order;
+import com.minimall.boilerplate.business.entity.User;
 import com.minimall.boilerplate.business.repository.*;
 import com.minimall.boilerplate.common.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,17 +30,23 @@ public class OrderSerivce {
     private OrderRepository orderRepository;
     @Autowired
     private CommodityRepository commodityRepository;
-   // @Autowired
-   // private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private OrderAssembler orderAssembler;
 
     // 新增
     @Transactional
-    public boolean orderAdd(OrderDTO orderDTO){
+    public boolean orderAdd(OrderDTO orderDTO,String codeKey){
+
+        Optional<User> userOptional = userRepository.findByCodeKey(codeKey);
+        if(!userOptional.isPresent()){
+            return false;
+        }
+
         Order order = new Order();
         // 商品
-        Optional<Commodity> commodity = commodityRepository.findById(orderDTO.getCommodityId());
+        Optional<Commodity> commodity = commodityRepository.findByIdAndComNo(orderDTO.getCommodityId(),orderDTO.getCommodityNo());
         if(!commodity.isPresent()){
             return false;
         }
@@ -50,6 +56,7 @@ public class OrderSerivce {
         order.setCommodityNo(commodity.get().getComNo());
         order.setCommodityName(commodity.get().getHeadline());
         order.setPurchaseQuantity(orderDTO.getPurchaseQuantity());
+        order.setUnitPrice(commodity.get().getSellingPrice());// 销售单价
         order.setOrderMoney(nonNull(Double.valueOf(orderDTO.getOrderMoney()))?Double.valueOf(orderDTO.getOrderMoney()):0);
         order.setAddress(orderDTO.getAddress());
         order.setOrderStatus(Constants.ORDER_STATUS_01); // 默认为待支付

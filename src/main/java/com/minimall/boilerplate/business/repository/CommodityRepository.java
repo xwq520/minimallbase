@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface CommodityRepository extends JpaRepository<Commodity, Long>, JpaSpecificationExecutor<Commodity> {
     Optional<Commodity> findByIdAndUserUserId(Long id,String userId);
+    Optional<Commodity> findByIdAndComNo(Long id,String comNo);
 }

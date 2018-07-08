@@ -106,12 +106,12 @@ public class SecurityConfiguration {
     @Override
     public void configure(WebSecurity web) throws Exception {
       web
-              .ignoring().antMatchers("/asserts/**")
-              .and().ignoring().antMatchers("/api/signup")
-              .and().ignoring().antMatchers("/api/alive")
+             // .ignoring().antMatchers("/asserts/**")
+            //  .and().ignoring().antMatchers("/api/signup")
+             // .and().ignoring().antMatchers("/api/alive")
 
               // 测试
-              .and().ignoring().antMatchers("/api/user/**")
+              .ignoring().antMatchers("/api/user/**")
               .and().ignoring().antMatchers("/api/commodity/**")
               .and().ignoring().antMatchers("/api/order/**")
               .and().ignoring().antMatchers("/api/messages/**");

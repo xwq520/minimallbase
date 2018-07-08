@@ -68,6 +68,7 @@ public class OrderAssembler implements IDTOAssembler<OrderDTO,Order> {
             using(toTime).map(source.getCancelTime(),destination.getCancelTime());
             using(toTime).map(source.getShipmentsTime(),destination.getShipmentsTime());
             using(moneyFormart).map(source.getOrderMoney(),destination.getOrderMoney());
+            using(moneyFormart).map(source.getUnitPrice(),destination.getUnitPrice());
             // map(source.getCommodity().getHeadline(),destination.getCommodityName());
             // map(source.getCommodity().getComNo(),destination.getCommodityNo());
            // using(toUpdateTime).map(source.getUpdateTime(),destination.getUpdateTime());

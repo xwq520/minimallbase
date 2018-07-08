@@ -17,10 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static java.util.Objects.nonNull;
@@ -46,6 +43,8 @@ public class UserService {
         user.setUserPhone(userDTO.getUserPhone());
         user.setUserSex(userDTO.getUserSex());
         user.setUserId(userDTO.getUserId());
+        String[] str = UUID.randomUUID().toString().split("-");
+        user.setCodeKey(str[0]+""+str[1]);
         if(!CheckUtils.isEmpty(userDTO.getPassword())){
             user.setPassword(CryptoHelper.encode(userDTO.getPassword()));
         }
@@ -133,7 +132,9 @@ public class UserService {
     public boolean verification(UserDTO userDTO){
         Optional<User> user = userRepository.findByUserId(userDTO.getUserId());
         if(user.isPresent()){
-            if(CryptoHelper.verify(userDTO.getPassword(),user.get().getPassword())){
+            if(CryptoHelper.verify(userDTO.getPassword(),user.get().getPassword()) && user.get().getIsLock() == 0){
+                user.get().setLastTime(new Timestamp(System.currentTimeMillis()));
+                userRepository.save(user.get());
                 return true;
             }
         }

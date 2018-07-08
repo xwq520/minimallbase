@@ -35,19 +35,24 @@ public class OrderController {
     private OrderSerivce orderSerivce;
 
     /**
-     * 新增订单
+     *  app  新增订单
      * @param orderDTO
      * @return
      */
-    @RequestMapping(method = POST,value = "/add",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> orderAdd(@RequestBody OrderDTO orderDTO) {
+    @RequestMapping(method = POST,value = "/place-order",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> orderAdd(@RequestBody OrderDTO orderDTO,
+                                                  @RequestHeader Map<String, String> header) {
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(orderDTO.getCommodityId())
-                || CheckUtils.isEmpty(orderDTO.getUserId()) ){
+
+        if(CheckUtils.isEmpty(orderDTO.getCommodityId())  ||
+                CheckUtils.isEmpty(orderDTO.getCommodityNo()) ||
+                CheckUtils.isEmpty(header.get(Constants.HTTP_CODE_KEY)) ){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        boolean order = orderSerivce.orderAdd(orderDTO);
+        // 下给谁的 用户订单
+        String codeKey = header.get(Constants.HTTP_CODE_KEY);
+        boolean order = orderSerivce.orderAdd(orderDTO,codeKey);
         if(!order){
             mo = MessageObject.of(Message.E124);
             return new ResponseEntity<>(mo, HttpStatus.OK);

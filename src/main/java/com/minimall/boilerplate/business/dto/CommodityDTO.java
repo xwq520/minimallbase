@@ -33,4 +33,6 @@ public class CommodityDTO {
     private String updateTime;// 更新时间
     private String[] delIds;
     private String  searchContant;
+
+    private String codeKey;// codeKey
 }

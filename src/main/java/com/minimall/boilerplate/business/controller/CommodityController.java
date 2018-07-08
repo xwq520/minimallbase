@@ -143,4 +143,32 @@ public class CommodityController {
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 */
+
+    /**
+     * wechat
+     * 商品homepage 列表
+     * @param commodityDTO
+     * @return
+     */
+    @RequestMapping(method = POST,value = "/wechatPagelist",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> wechatPagelist(@RequestBody CommodityDTO commodityDTO,
+                                                       @RequestHeader Map<String, String> header) {
+        MessageObject mo = MessageObject.of(Message.I102);
+        // 头部 HTTP_CODE_KEY 用户i
+        if(CheckUtils.isEmpty(header.get(Constants.HTTP_CODE_KEY))){
+            mo = MessageObject.of(Message.E111);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        String codeKey = header.get(Constants.HTTP_CODE_KEY);
+        commodityDTO.setCodeKey(codeKey);
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        Pageable pageable = toPageable(header, sort);
+        List<CommodityDTO> commodityDTOs = commodityService.commodityList(commodityDTO,pageable,mo);
+        if(nonNull(commodityDTOs) && commodityDTOs.size() > 0){
+            mo.put("commodityHomeList",commodityDTOs);
+            return new ResponseEntity<>(mo, HttpStatus.OK);
+        }
+        mo = MessageObject.of(Message.E124);
+        return new ResponseEntity<>(mo, HttpStatus.OK);
+    }
 }

@@ -16,6 +16,7 @@ public class OrderDTO {
 
     private Integer purchaseQuantity;// 购买数量
     private String orderMoney;// 订单金额
+    private String unitPrice;// 订单单价
     private String address;// 收货地址
 
     // 订单状态 1.待支付  2.已支付（代发货） 3.已发货  4. 已取消订单

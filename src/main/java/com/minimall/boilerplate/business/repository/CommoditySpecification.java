@@ -22,6 +22,9 @@ public class CommoditySpecification {
                     predicates.add(builder.equal(root.get("commodityStatus"),commodityDTO.getCommodityStatus()));
                 }
 
+                if(!CheckUtils.isEmpty(commodityDTO.getType())){
+                    predicates.add(builder.equal(root.get("dictionary").get("code"),commodityDTO.getType()));
+                }
                 if(!CheckUtils.isEmpty(searchContant)){
                     predicates.add(builder.or(builder.or(builder.like(root.get("headline"), "%" + searchContant + "%"),
                             builder.like(root.get("subtitle"), "%" + searchContant + "%"),

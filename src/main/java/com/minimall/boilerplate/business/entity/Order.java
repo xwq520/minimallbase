@@ -50,6 +50,8 @@ public class Order implements Serializable {
     private String orderNo;
     // 购买数量
     private Integer purchaseQuantity;
+    // 单价
+    private Double unitPrice;
     // 订单金额
     private Double orderMoney;
 
