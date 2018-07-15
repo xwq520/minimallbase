@@ -10,16 +10,25 @@ import com.minimall.boilerplate.business.repository.DictionaryRepository;
 import com.minimall.boilerplate.business.repository.UserRepository;
 import com.minimall.boilerplate.business.repository.CommoditySpecification;
 import com.minimall.boilerplate.common.*;
+import com.minimall.boilerplate.exception.BadRequestException;
 import com.minimall.boilerplate.exception.NotFoundRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static com.minimall.boilerplate.common.Message.E124;
 import static java.util.Objects.nonNull;
 
 @Service
@@ -169,7 +178,7 @@ public class CommodityService {
     }
 
     // 获取单条数据
-    @Transactional
+   /* @Transactional
     public CommodityDTO commodityInfo(Long commodityId){
         Optional<Commodity> commodity = commodityRepository.findById(commodityId);
         if(commodity.isPresent()){
@@ -179,6 +188,86 @@ public class CommodityService {
             }
         }
         return null;
+    }*/
+
+    /**
+     *  上传 视频 语音
+     *
+     controller 使用列子
+     @RequestMapping(method = POST, value = "/asset/repairUpload",consumes = MULTIPART_FORM_DATA_VALUE, produces = JSON_UTF8)
+     public ResponseEntity<MessageObject> repairUpload(HttpServletRequest request){
+
+      * @param request
+     *
+     *  filePath 文件Id
+     *  fileName 文件名称
+     *  filePlayPath 文件播放完整地址
+     *
+     * @return 返回保存成功的文件名
+     */
+    public Map uploadMediaFiles(HttpServletRequest request){
+
+        try{
+            // 返回保存成功的文件名
+            String path = "";
+            Map<String,String> map = new HashMap<String,String>();
+            //创建一个通用的多部分解析器
+            CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+            //判断 request 是否有文件上传,即多部分请求
+            if(multipartResolver.isMultipart(request)){
+
+                //转换成多部分request
+                MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest)request;
+
+                //取得request中的所有文件名
+                Iterator<String> iter = multiRequest.getFileNames();
+                while(iter.hasNext()){
+                    //记录上传过程起始时的时间，用来计算上传时间
+                    // int pre = (int) System.currentTimeMillis();
+                    //取得上传文件
+                    MultipartFile file = multiRequest.getFile(iter.next());
+                    if(file != null){
+                        //取得当前上传文件的文件名称
+                        String myFileName = file.getOriginalFilename();
+                        //如果名称不为“”,说明该文件存在，否则说明该文件不存在
+                        if(!CheckUtils.isEmpty(myFileName.trim())){
+                            // System.out.println(myFileName);
+                            // 获取文件后缀名
+                            String originalFilename = file.getOriginalFilename();
+                            String fileType = originalFilename.substring(originalFilename.lastIndexOf("."),originalFilename.length());
+                            //重命名上传后的文件名
+                            String fileNameStr = "m_imgs_" + System.currentTimeMillis()+ fileType;
+                            // 定义上传路径 localFileDisk,localFileMkdirs
+                            path = File.separator + "Users"+File.separator+"mac-xwq"+File.separator+"works"+File.separator+"imgs"+File.separator+fileNameStr;
+                            //path =  ""+fileName;
+                            // 文件上传目录
+                            File localFile = new  File(path);
+                            localFile.setWritable(true, false);
+                            //image/jpeg
+                            //if(!localFile.exists()){
+                               // localFile.mkdirs();
+                            //}
+                            file.transferTo(localFile);
+
+                            map.put("filePath",""+fileNameStr);
+                            map.put("fileName",fileNameStr);
+                           // map.put("filePlayPath",httpRequstImgsServer+'/'+path);
+
+                            // 存储到file表
+                          //  File fileObj = new File();
+                           // fileObj.setFileId(fileNameStr);
+                           // fileObj.setFilePath("/"+path);
+                           // fileRepository.save(fileObj);
+                        }
+                    }
+                }
+            }
+            return map;
+        } catch (Exception e) {
+           // logger.error("读取导入文件流失败", e);
+            throw new BadRequestException(E124);
+        }
+
     }
 
 }

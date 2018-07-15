@@ -13,11 +13,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
 import static com.minimall.boilerplate.common.BusinessHelper.PageableConverter.toPageable;
+import static com.minimall.boilerplate.common.Constants.JSON_UTF8;
+import static com.minimall.boilerplate.common.Message.I102;
 import static java.util.Objects.nonNull;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
+import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
@@ -32,10 +38,10 @@ public class CommodityController {
      * @param commodityDTO
      * @return
      */
-    @RequestMapping(method = POST,value = "/add",produces = Constants.JSON_UTF8)
+    @RequestMapping(method = POST,value = "/add",produces = JSON_UTF8)
     public ResponseEntity<MessageObject> commodityAdd(@RequestBody CommodityDTO commodityDTO,
                                                       @RequestHeader Map<String, String> header){
-        MessageObject mo = MessageObject.of(Message.I102);
+        MessageObject mo = MessageObject.of(I102);
         if(CheckUtils.isEmpty(commodityDTO.getHeadline())
                 || CheckUtils.isEmpty(commodityDTO.getSubtitle())||
                 CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
@@ -57,10 +63,10 @@ public class CommodityController {
      * @param commodityDTO
      * @return
      */
-    @RequestMapping(method = POST,value = "/list",produces = Constants.JSON_UTF8)
+    @RequestMapping(method = POST,value = "/list",produces = JSON_UTF8)
     public ResponseEntity<MessageObject> commodityList(@RequestBody CommodityDTO commodityDTO,
                                                   @RequestHeader Map<String, String> header) {
-        MessageObject mo = MessageObject.of(Message.I102);
+        MessageObject mo = MessageObject.of(I102);
         // 头部 userId 用户i
         if(CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
             mo = MessageObject.of(Message.E111);
@@ -84,10 +90,10 @@ public class CommodityController {
      * @param commodityDTO
      * @return
      */
-    @RequestMapping(method = POST,value = "/update",produces = Constants.JSON_UTF8)
+    @RequestMapping(method = POST,value = "/update",produces = JSON_UTF8)
     public ResponseEntity<MessageObject> commodityUpdate(@RequestBody CommodityDTO commodityDTO ,
                                                          @RequestHeader Map<String, String> header){
-        MessageObject mo = MessageObject.of(Message.I102);
+        MessageObject mo = MessageObject.of(I102);
         if(CheckUtils.isEmpty(commodityDTO.getId())|| CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
@@ -108,10 +114,10 @@ public class CommodityController {
      * @param commodityDTO
      * @return
      */
-    @RequestMapping(method = POST,value = "/delete",produces = Constants.JSON_UTF8)
+    @RequestMapping(method = POST,value = "/delete",produces = JSON_UTF8)
     public ResponseEntity<MessageObject> deletePlayManage(@RequestBody CommodityDTO commodityDTO,
                                                           @RequestHeader Map<String, String> header){
-        MessageObject mo = MessageObject.of(Message.I102);
+        MessageObject mo = MessageObject.of(I102);
         if(CheckUtils.isEmpty(commodityDTO.getDelIds())||
                 CheckUtils.isEmpty(header.get(Constants.HTTP_USER_ID))) {
             mo = MessageObject.of(Message.E111);
@@ -150,10 +156,10 @@ public class CommodityController {
      * @param commodityDTO
      * @return
      */
-    @RequestMapping(method = POST,value = "/wechatPagelist",produces = Constants.JSON_UTF8)
+    @RequestMapping(method = POST,value = "/wechatPagelist",produces = JSON_UTF8)
     public ResponseEntity<MessageObject> wechatPagelist(@RequestBody CommodityDTO commodityDTO,
                                                        @RequestHeader Map<String, String> header) {
-        MessageObject mo = MessageObject.of(Message.I102);
+        MessageObject mo = MessageObject.of(I102);
         // 头部 HTTP_CODE_KEY 用户i
         if(CheckUtils.isEmpty(header.get(Constants.HTTP_CODE_KEY))){
             mo = MessageObject.of(Message.E111);
@@ -171,4 +177,16 @@ public class CommodityController {
         mo = MessageObject.of(Message.E124);
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
+
+    @RequestMapping(method = POST, value = "/mediaFiles",consumes = MULTIPART_FORM_DATA_VALUE, produces = JSON_UTF8)
+    public ResponseEntity<MessageObject> mediaFilesUpload(HttpServletRequest request){
+        MessageObject mo = MessageObject.of(I102);
+        Map map = commodityService.uploadMediaFiles(request);
+        if(map.isEmpty()){
+            return new ResponseEntity<>(NO_CONTENT);
+        }
+        mo.put("mediaFiles", map);
+        return new ResponseEntity<>(mo, OK);
+    }
+
 }
