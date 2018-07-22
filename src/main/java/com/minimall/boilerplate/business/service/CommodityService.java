@@ -12,6 +12,7 @@ import com.minimall.boilerplate.business.repository.CommoditySpecification;
 import com.minimall.boilerplate.common.*;
 import com.minimall.boilerplate.exception.BadRequestException;
 import com.minimall.boilerplate.exception.NotFoundRequestException;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,9 +21,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import sun.misc.BASE64Decoder;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+import java.io.*;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -68,10 +70,19 @@ public class CommodityService {
                 commodity.setDictionary(dictionary.get());
             }
         }
-       // commodity.setProducedDate(Timestamp.valueOf(commodityDTO.getProducedDate()));
+        BASE64Decoder decoder = new BASE64Decoder();
+        try {
+            // 在线的base64图片转换带有："data:image/jpeg;base64," 解码之前这个得去掉。
+            String previewImg = commodityDTO.getPreviewImg();
+            byte[] imgbyte =  decoder.decodeBuffer(previewImg.substring(previewImg.indexOf(",")+1));
+           commodity.setPreviewImg(this.saveImgs(null,true,imgbyte));
+        } catch (IOException e) {
+           // e.printStackTrace();
+        }
+        // commodity.setProducedDate(Timestamp.valueOf(commodityDTO.getProducedDate()));
        // commodity.setStartGuaPeriodDate(Timestamp.valueOf(commodityDTO.getStartGuaPeriodDate()));
        // commodity.setEndGuaPeriodDate(Timestamp.valueOf(commodityDTO.getEndGuaPeriodDate()));
-        commodity.setPreviewImg(commodityDTO.getPreviewImg());
+
         commodity.setCommodityDetails(commodityDTO.getCommodityDetails());
         commodity.setCommodityStatus(commodityDTO.getCommodityStatus());
         commodityRepository.save(commodity);
@@ -147,8 +158,20 @@ public class CommodityService {
               //  if(!CheckUtils.isEmpty(commodityDTO.getEndGuaPeriodDate())){
              //       commodity.get().setEndGuaPeriodDate(Timestamp.valueOf(commodityDTO.getEndGuaPeriodDate()));
              //   }
-
-                commodity.get().setPreviewImg(commodityDTO.getPreviewImg());
+                if(!CheckUtils.isEmpty(commodityDTO.getPreviewImg()) && commodityDTO.getPreviewImg().indexOf("base64") >=0 ){
+                    BASE64Decoder decoder = new BASE64Decoder();
+                    try {
+                        // 在线的base64图片转换带有："data:image/jpeg;base64," 解码之前这个得去掉。
+                        String previewImg = commodityDTO.getPreviewImg();
+                        byte[] imgbyte =  decoder.decodeBuffer(previewImg.substring(previewImg.indexOf(",")+1));
+                        commodity.get().setPreviewImg(this.saveImgs(null,true,imgbyte));
+                    } catch (IOException e) {
+                        // e.printStackTrace();
+                    }
+                }else{
+                    commodity.get().setPreviewImg(commodityDTO.getPreviewImg());
+                }
+               // commodity.get().setPreviewImg(commodityDTO.getPreviewImg());
                 commodity.get().setCommodityDetails(commodityDTO.getCommodityDetails());
                 // soldOutTime 下架时间
                 if(!CheckUtils.isEmpty(commodityDTO.getCommodityStatus())
@@ -231,33 +254,14 @@ public class CommodityService {
                         String myFileName = file.getOriginalFilename();
                         //如果名称不为“”,说明该文件存在，否则说明该文件不存在
                         if(!CheckUtils.isEmpty(myFileName.trim())){
-                            // System.out.println(myFileName);
                             // 获取文件后缀名
-                            String originalFilename = file.getOriginalFilename();
-                            String fileType = originalFilename.substring(originalFilename.lastIndexOf("."),originalFilename.length());
-                            //重命名上传后的文件名
-                            String fileNameStr = "m_imgs_" + System.currentTimeMillis()+ fileType;
-                            // 定义上传路径 localFileDisk,localFileMkdirs
-                            path = File.separator + "Users"+File.separator+"mac-xwq"+File.separator+"works"+File.separator+"imgs"+File.separator+fileNameStr;
-                            //path =  ""+fileName;
-                            // 文件上传目录
-                            File localFile = new  File(path);
-                            localFile.setWritable(true, false);
-                            //image/jpeg
-                            //if(!localFile.exists()){
-                               // localFile.mkdirs();
-                            //}
-                            file.transferTo(localFile);
+                           // String originalFilename = file.getOriginalFilename();
+                          //  String fileType = originalFilename.substring(originalFilename.lastIndexOf("."),originalFilename.length());
 
-                            map.put("filePath",""+fileNameStr);
-                            map.put("fileName",fileNameStr);
+                            map.put("filePath",this.saveImgs(file.getInputStream(),false,null));
+                           // map.put("fileName",fileNameStr);
                            // map.put("filePlayPath",httpRequstImgsServer+'/'+path);
 
-                            // 存储到file表
-                          //  File fileObj = new File();
-                           // fileObj.setFileId(fileNameStr);
-                           // fileObj.setFilePath("/"+path);
-                           // fileRepository.save(fileObj);
                         }
                     }
                 }
@@ -268,6 +272,46 @@ public class CommodityService {
             throw new BadRequestException(E124);
         }
 
+    }
+
+    private String saveImgs(InputStream imgInput,boolean isOut,byte[] bytes){
+        //重命名上传后的文件名
+        String fileNameStr = "m_imgs_" + System.currentTimeMillis()+ ".PNG";
+        // 定义上传路径 localFileDisk,localFileMkdirs
+        String path = File.separator + "Users"+File.separator+"mac-xwq"+File.separator+"works"+File.separator+"imgs";
+        // 文件上传目录
+        // file.transferTo(localFile);
+
+        //先判断文件是否存在
+        File file1 =new File(path);
+        //如果文件夹不存在则创建
+        if(!file1 .exists()  && !file1 .isDirectory()){
+            file1 .mkdir();
+        }
+        file1.setWritable(true,false);
+        try {
+            if(!isOut){
+                FileUtils.copyInputStreamToFile(imgInput, new File(file1, fileNameStr));
+            }else{
+                //生成jpeg图片通过  base64准换
+                OutputStream out = new FileOutputStream(path+File.separator+fileNameStr);
+                for(int i=0;i<bytes.length;++i)
+                {
+                    if(bytes[i]<0)
+                    {//调整异常数据
+                        bytes[i]+=256;
+                    }
+                }
+                out.write(bytes);
+                out.flush();
+                out.close();
+            }
+
+        } catch (IOException e) {
+          //  e.printStackTrace();
+        }
+        //  file.transferTo(new File(file1, fileName));
+        return "/imgs/"+fileNameStr;
     }
 
 }
