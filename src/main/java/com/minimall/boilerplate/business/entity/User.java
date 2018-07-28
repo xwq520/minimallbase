@@ -43,6 +43,10 @@ public class User implements Serializable {
     private Timestamp lastTime;
     // 微信端访问的key
     private String codeKey;
+    // 默认微信支付
+    private String play1;
+    // 默认支付宝支付
+    private String play2;
 
     // 用户角色表
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)

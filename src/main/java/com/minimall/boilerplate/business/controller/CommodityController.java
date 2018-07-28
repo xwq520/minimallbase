@@ -178,7 +178,7 @@ public class CommodityController {
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 
-    @RequestMapping(method = POST, value = "/mediaFiles",consumes = MULTIPART_FORM_DATA_VALUE, produces = JSON_UTF8)
+   /* @RequestMapping(method = POST, value = "/mediaFiles",consumes = MULTIPART_FORM_DATA_VALUE, produces = JSON_UTF8)
     public ResponseEntity<MessageObject> mediaFilesUpload(HttpServletRequest request){
         MessageObject mo = MessageObject.of(I102);
         Map map = commodityService.uploadMediaFiles(request);
@@ -188,5 +188,5 @@ public class CommodityController {
         mo.put("mediaFiles", map);
         return new ResponseEntity<>(mo, OK);
     }
-
+*/
 }

@@ -16,6 +16,7 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,6 +45,8 @@ public class CommodityService {
     private UserRepository userRepository;
     @Autowired
     private CommodityAssembler commodityAssembler;
+    @Autowired
+    private FileService fileService;
 
     // 新增
     @Transactional
@@ -75,8 +78,10 @@ public class CommodityService {
             // 在线的base64图片转换带有："data:image/jpeg;base64," 解码之前这个得去掉。
             String previewImg = commodityDTO.getPreviewImg();
             byte[] imgbyte =  decoder.decodeBuffer(previewImg.substring(previewImg.indexOf(",")+1));
-           commodity.setPreviewImg(this.saveImgs(null,true,imgbyte));
-        } catch (IOException e) {
+
+          // commodity.setPreviewImg(this.saveImgs(null,true,imgbyte));
+            commodity.setPreviewImg(fileService.uploadFilesOss(imgbyte));
+        } catch (Exception e) {
            // e.printStackTrace();
         }
         // commodity.setProducedDate(Timestamp.valueOf(commodityDTO.getProducedDate()));
@@ -164,8 +169,9 @@ public class CommodityService {
                         // 在线的base64图片转换带有："data:image/jpeg;base64," 解码之前这个得去掉。
                         String previewImg = commodityDTO.getPreviewImg();
                         byte[] imgbyte =  decoder.decodeBuffer(previewImg.substring(previewImg.indexOf(",")+1));
-                        commodity.get().setPreviewImg(this.saveImgs(null,true,imgbyte));
-                    } catch (IOException e) {
+                       // commodity.get().setPreviewImg(this.saveImgs(null,true,imgbyte));
+                        commodity.get().setPreviewImg(fileService.uploadFilesOss(imgbyte));
+                    } catch (Exception e) {
                         // e.printStackTrace();
                     }
                 }else{
@@ -288,6 +294,7 @@ public class CommodityService {
         if(!file1 .exists()  && !file1 .isDirectory()){
             file1 .mkdir();
         }
+
         file1.setWritable(true,false);
         try {
             if(!isOut){

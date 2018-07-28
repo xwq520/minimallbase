@@ -82,7 +82,7 @@ public class SecurityConfiguration {
 
               .and()
               .requestMatchers()
-              .antMatchers("/api/**")
+              .antMatchers("/api/**")/*
 
               // 系统及共通接口
               .and()
@@ -100,7 +100,7 @@ public class SecurityConfiguration {
                       "/api/dictionaries/queries"
               ).access("isAuthenticated()")
               .antMatchers(POST, "/api/authorities/queries")
-              .access("@webSecurity.check(authentication, 'SY02') and hasAuthority('AUTH_READ')");
+              .access("@webSecurity.check(authentication, 'SY02') and hasAuthority('AUTH_READ')")*/;
     }
 
     @Override
@@ -114,6 +114,7 @@ public class SecurityConfiguration {
               .ignoring().antMatchers("/api/user/**")
               .and().ignoring().antMatchers("/api/commodity/**")
               .and().ignoring().antMatchers("/api/order/**")
+              .and().ignoring().antMatchers("/api/oss/**")
               .and().ignoring().antMatchers("/api/messages/**");
 
     }

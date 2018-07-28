@@ -26,5 +26,9 @@ public class UserDTO {
     private String updaterName; // 更新者名称
     private String updateTime;// 更新时间
     private String searchContant;// 模糊查询内容
+    private String codeKey;
+
+    private String play1;//默认微信支付
+    private String play2;//默认支付宝支付
 
 }

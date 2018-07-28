@@ -160,7 +160,7 @@ public class OrderSerivce {
 
         OrderHomeDTO orderHomeDTO = new OrderHomeDTO();
         List<Object[]>  objArr = orderRepository.findByCountOrderInfo(userId);
-        if(!CheckUtils.isEmpty(objArr) && objArr.size()>0){
+        if(!CheckUtils.isEmpty(objArr) && objArr.size()>0 && !CheckUtils.isEmpty(objArr.get(0)[0]) ){
             String sumCount = objArr.get(0)[0].toString();
             orderHomeDTO.setSumCount(sumCount);
             String sumMoney = objArr.get(0)[1].toString();

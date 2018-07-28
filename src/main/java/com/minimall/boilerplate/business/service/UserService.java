@@ -16,6 +16,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sun.misc.BASE64Decoder;
+
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -29,6 +31,8 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private UserAssembler userAssembler;
+    @Autowired
+    private FileService fileService;
 
     // 新增
     @Transactional
@@ -44,7 +48,8 @@ public class UserService {
         user.setUserSex(userDTO.getUserSex());
         user.setUserId(userDTO.getUserId());
         String[] str = UUID.randomUUID().toString().split("-");
-        user.setCodeKey(str[0]+""+str[1]);
+       // user.setCodeKey(str[0]+""+str[1]);
+        user.setCodeKey(UUID.randomUUID().toString());
         if(!CheckUtils.isEmpty(userDTO.getPassword())){
             user.setPassword(CryptoHelper.encode(userDTO.getPassword()));
         }
@@ -58,8 +63,8 @@ public class UserService {
     // 编辑
     @Transactional
     public boolean userUpdate(UserDTO userDTO){
-        if(!CheckUtils.isEmpty(userDTO.getId())){
-            Optional<User> user = userRepository.findById(userDTO.getId());
+        if(!CheckUtils.isEmpty(userDTO.getUserId())){
+            Optional<User> user = userRepository.findByUserId(userDTO.getUserId());
             if(!CheckUtils.isEmpty(userDTO.getUserName())){
                 user.get().setUserName(userDTO.getUserName());
             }
@@ -77,6 +82,30 @@ public class UserService {
             }
             if(!CheckUtils.isEmpty(userDTO.getIsLock())){
                 user.get().setIsLock(userDTO.getIsLock());
+            }
+            if(!CheckUtils.isEmpty(userDTO.getPlay1()) && userDTO.getPlay1().indexOf("base64") >=0 ){
+                BASE64Decoder decoder = new BASE64Decoder();
+                try {
+                    // 在线的base64图片转换带有："data:image/jpeg;base64," 解码之前这个得去掉。
+                    String getPlay1 = userDTO.getPlay1();
+                    byte[] imgbyte =  decoder.decodeBuffer(getPlay1.substring(getPlay1.indexOf(",")+1));
+                    // commodity.setPreviewImg(this.saveImgs(null,true,imgbyte));
+                    user.get().setPlay1(fileService.uploadFilesOss(imgbyte));
+                } catch (Exception e) {
+                    // e.printStackTrace();
+                }
+            }
+            if(!CheckUtils.isEmpty(userDTO.getPlay2()) && userDTO.getPlay2().indexOf("base64") >=0 ){
+                BASE64Decoder decoder = new BASE64Decoder();
+                try {
+                    // 在线的base64图片转换带有："data:image/jpeg;base64," 解码之前这个得去掉。
+                    String getPlay2 = userDTO.getPlay2();
+                    byte[] imgbyte =  decoder.decodeBuffer(getPlay2.substring(getPlay2.indexOf(",")+1));
+                    // commodity.setPreviewImg(this.saveImgs(null,true,imgbyte));
+                    user.get().setPlay2(fileService.uploadFilesOss(imgbyte));
+                } catch (Exception e) {
+                    // e.printStackTrace();
+                }
             }
             userRepository.save(user.get());
         }
@@ -129,16 +158,16 @@ public class UserService {
 
     // 验证用户Id和用户密码是否存在
     @Transactional
-    public boolean verification(UserDTO userDTO){
+    public User verification(UserDTO userDTO){
         Optional<User> user = userRepository.findByUserId(userDTO.getUserId());
         if(user.isPresent()){
             if(CryptoHelper.verify(userDTO.getPassword(),user.get().getPassword()) && user.get().getIsLock() == 0){
                 user.get().setLastTime(new Timestamp(System.currentTimeMillis()));
                 userRepository.save(user.get());
-                return true;
+                return user.get();
             }
         }
-        return false;
+        return null;
     }
 /*
     public static void main(String[] args) {

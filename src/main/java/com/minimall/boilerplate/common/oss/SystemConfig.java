@@ -9,7 +9,7 @@ import java.util.Properties;
  * 创建一个读取配置文件的工具类
  */
 public class SystemConfig {
-  private static final String CONFIG_PROPERTIES="application-dev.properties";
+  private static final String CONFIG_PROPERTIES="application-com.properties";
 
   public static String getConfigResource(String key) throws IOException {
     ClassLoader loader = Thread.currentThread().getContextClassLoader();

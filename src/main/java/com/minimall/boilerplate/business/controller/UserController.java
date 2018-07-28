@@ -2,6 +2,7 @@ package com.minimall.boilerplate.business.controller;
 
 import com.minimall.boilerplate.business.dto.PasswordDTO;
 import com.minimall.boilerplate.business.dto.UserDTO;
+import com.minimall.boilerplate.business.entity.User;
 import com.minimall.boilerplate.business.service.UserService;
 import com.minimall.boilerplate.common.CheckUtils;
 import com.minimall.boilerplate.common.Constants;
@@ -36,11 +37,14 @@ public class UserController {
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        boolean user = userService.verification(userDTO);
-        if(!user){
+        User user = userService.verification(userDTO);
+        if(CheckUtils.isEmpty(user)){
             mo = MessageObject.of(Message.E109);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
+        mo.put("codeKey",user.getCodeKey());
+        mo.put("play1",user.getPlay1());
+        mo.put("play2",user.getPlay2());
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 
@@ -95,7 +99,7 @@ public class UserController {
     @RequestMapping(method = POST,value = "/update",produces = Constants.JSON_UTF8)
     public ResponseEntity<MessageObject> userUpdate(@RequestBody UserDTO userDTO){
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(userDTO.getId()) ){
+        if(CheckUtils.isEmpty(userDTO.getUserId())){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
