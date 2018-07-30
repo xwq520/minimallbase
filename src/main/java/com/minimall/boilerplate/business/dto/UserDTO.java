@@ -30,5 +30,8 @@ public class UserDTO {
 
     private String play1;//默认微信支付
     private String play2;//默认支付宝支付
+    private String other;
+    private String remarks;
+    private String expireTime;
 
 }

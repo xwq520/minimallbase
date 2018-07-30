@@ -47,6 +47,8 @@ public class UserService {
         user.setUserPhone(userDTO.getUserPhone());
         user.setUserSex(userDTO.getUserSex());
         user.setUserId(userDTO.getUserId());
+        user.setOther(userDTO.getOther());
+        user.setRemarks(userDTO.getRemarks());
         String[] str = UUID.randomUUID().toString().split("-");
        // user.setCodeKey(str[0]+""+str[1]);
         user.setCodeKey(UUID.randomUUID().toString());
@@ -83,6 +85,8 @@ public class UserService {
             if(!CheckUtils.isEmpty(userDTO.getIsLock())){
                 user.get().setIsLock(userDTO.getIsLock());
             }
+            user.get().setOther(userDTO.getOther());
+            user.get().setRemarks(userDTO.getRemarks());
             if(!CheckUtils.isEmpty(userDTO.getPlay1()) && userDTO.getPlay1().indexOf("base64") >=0 ){
                 BASE64Decoder decoder = new BASE64Decoder();
                 try {
@@ -143,18 +147,15 @@ public class UserService {
     }
 
 
-  /*  // 获取单条数据
+  // 获取单条数据
     @Transactional
-    public UserDTO userInfo(Long id){
-        Optional<User> commodity = userRepository.findById(id);
+    public User userInfo(String codeKey){
+        Optional<User> commodity = userRepository.findByCodeKey(codeKey);
         if(commodity.isPresent()){
-            Optional<UserDTO> userDTOOptional = userAssembler.toDTO(commodity.get());
-            if(userDTOOptional.isPresent()){
-                return userDTOOptional.get();
-            }
+             return commodity.get();
         }
         return null;
-    }*/
+    }
 
     // 验证用户Id和用户密码是否存在
     @Transactional

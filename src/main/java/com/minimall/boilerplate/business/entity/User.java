@@ -47,6 +47,11 @@ public class User implements Serializable {
     private String play1;
     // 默认支付宝支付
     private String play2;
+    private String other;
+    private String remarks;
+
+    // 到期日 expire
+    private Timestamp expireTime;
 
     // 用户角色表
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)

@@ -14,6 +14,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static com.minimall.boilerplate.common.BusinessHelper.PageableConverter.toPageable;
@@ -42,9 +44,14 @@ public class UserController {
             mo = MessageObject.of(Message.E109);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        mo.put("codeKey",user.getCodeKey());
-        mo.put("play1",user.getPlay1());
-        mo.put("play2",user.getPlay2());
+        Map map = new HashMap();
+        map.put("codeKey",user.getCodeKey());
+        map.put("phone",user.getUserPhone());
+        map.put("other",user.getOther());
+        map.put("play1",user.getPlay1());
+        map.put("play2",user.getPlay2());
+
+        mo.put("userinfo",map);
         return new ResponseEntity<>(mo, HttpStatus.OK);
     }
 
@@ -157,23 +164,29 @@ public class UserController {
 
     /**
      * 单条数据
-     * @param id
+     * @param header
      * @return
      */
-   /* @RequestMapping(method = GET,value = "/userInfo/{id}",produces = Constants.JSON_UTF8)
-    public ResponseEntity<MessageObject> userInfo (@PathVariable("id") Long id){
+    @RequestMapping(method = POST,value = "/info",produces = Constants.JSON_UTF8)
+    public ResponseEntity<MessageObject> userInfo (@RequestHeader Map<String, String> header){
         MessageObject mo = MessageObject.of(Message.I102);
-        if(CheckUtils.isEmpty(id)){
+
+        if(CheckUtils.isEmpty(header.get(Constants.HTTP_CODE_KEY))){
             mo = MessageObject.of(Message.E111);
             return new ResponseEntity<>(mo, HttpStatus.NO_CONTENT);
         }
-        UserDTO userInfo = userService.userInfo(id);
+        User userInfo = userService.userInfo(header.get(Constants.HTTP_CODE_KEY));
         if(CheckUtils.isEmpty(userInfo)){
             mo = MessageObject.of(Message.E124);
             return new ResponseEntity<>(mo, HttpStatus.OK);
         }
-        mo.put("userInfo",userInfo);
+        Map map = new HashMap();
+        map.put("phone",userInfo.getUserPhone());
+        map.put("other",userInfo.getOther());
+        map.put("play1",userInfo.getPlay1());
+        map.put("play2",userInfo.getPlay2());
+        mo.put("info",map);
         return new ResponseEntity<>(mo, HttpStatus.OK);
-    }*/
+    }
 
 }
