@@ -47,6 +47,7 @@ public class UserController {
         Map map = new HashMap();
         map.put("codeKey",user.getCodeKey());
         map.put("phone",user.getUserPhone());
+        map.put("name",user.getUserName());
         map.put("other",user.getOther());
         map.put("play1",user.getPlay1());
         map.put("play2",user.getPlay2());
